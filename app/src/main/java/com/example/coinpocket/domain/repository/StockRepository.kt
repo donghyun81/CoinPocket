@@ -2,7 +2,7 @@ package com.example.coinpocket.domain.repository
 
 import com.example.coinpocket.domain.model.CompanyListing
 import com.example.coinpocket.domain.model.IntradayInfo
-import com.example.coinpocket.presentation.company_info.CompanyInfo
+import com.example.coinpocket.domain.model.CompanyInfo
 import com.example.coinpocket.util.Resource
 import kotlinx.coroutines.flow.Flow
 

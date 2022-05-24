@@ -1,4 +1,4 @@
-package com.example.coinpocket.presentation.company_info
+package com.example.coinpocket.domain.model
 
 
 

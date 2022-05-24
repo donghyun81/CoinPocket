@@ -137,6 +137,6 @@ fun MainScreen() {
 @Composable
 fun DefaultPreview() {
     CoinPocketTheme {
-
+        MainScreen()
     }
 }

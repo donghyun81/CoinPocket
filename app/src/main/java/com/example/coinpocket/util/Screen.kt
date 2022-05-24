@@ -1,9 +1,8 @@
 package com.example.coinpocket.util
 
 
-sealed class Screens(val route: String) {
-    object Home : Screens("home")
-    object SearchStock : Screens("search?query={query}")
-    object Profile : Screens("profile/{id}?isEditable={isEditable}")
-
+sealed class BottomNavScreen(val route: String) {
+    object Home : BottomNavScreen("home")
+    object SearchStock : BottomNavScreen("search?query={query}")
+    object Profile : BottomNavScreen("profile/{id}?isEditable={isEditable}")
 }
