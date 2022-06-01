@@ -75,7 +75,7 @@ public final class StockDao_Impl implements StockDao {
 
   @Override
   public Object insertCompanyListings(final List<CompanyListingEntity> companyListingEntities,
-      final Continuation<? super Unit> continuation) {
+      final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
@@ -88,11 +88,11 @@ public final class StockDao_Impl implements StockDao {
           __db.endTransaction();
         }
       }
-    }, continuation);
+    }, arg1);
   }
 
   @Override
-  public Object clearCompanyListings(final Continuation<? super Unit> continuation) {
+  public Object clearCompanyListings(final Continuation<? super Unit> arg0) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
@@ -107,12 +107,12 @@ public final class StockDao_Impl implements StockDao {
           __preparedStmtOfClearCompanyListings.release(_stmt);
         }
       }
-    }, continuation);
+    }, arg0);
   }
 
   @Override
   public Object searchCompanyListings(final String query,
-      final Continuation<? super List<CompanyListingEntity>> continuation) {
+      final Continuation<? super List<CompanyListingEntity>> arg1) {
     final String _sql = "\n"
             + "        Select *\n"
             + "        From companylistingentity \n"
@@ -179,7 +179,7 @@ public final class StockDao_Impl implements StockDao {
           _statement.release();
         }
       }
-    }, continuation);
+    }, arg1);
   }
 
   public static List<Class<?>> getRequiredConverters() {

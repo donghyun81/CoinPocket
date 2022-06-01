@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-da/values-da.xml",
+            "outputFile": "/Users/yundonghyeon/Downloads/CoinPocket-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-da/values-da.xml",
             "map": [
                 {
                     "source": "/Users/yundonghyeon/.gradle/caches/transforms-3/ae4a60d15448f2654f7707689afaeb21/transformed/appcompat-1.4.1/res/values-da/values-da.xml",

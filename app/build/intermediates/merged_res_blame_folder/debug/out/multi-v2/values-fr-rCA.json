@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fr-rCA/values-fr-rCA.xml",
+            "outputFile": "/Users/yundonghyeon/Downloads/CoinPocket-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fr-rCA/values-fr-rCA.xml",
             "map": [
                 {
                     "source": "/Users/yundonghyeon/.gradle/caches/transforms-3/953fc53566c7fee62676092289878cae/transformed/core-1.9.0-alpha02/res/values-fr-rCA/values-fr-rCA.xml",

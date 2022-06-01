@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-tr/values-tr.xml",
+            "outputFile": "/Users/yundonghyeon/Downloads/CoinPocket-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-tr/values-tr.xml",
             "map": [
                 {
                     "source": "/Users/yundonghyeon/.gradle/caches/transforms-3/3a565ae9fa6a62be5fdb3945f0e1fa8c/transformed/jetified-ui-1.1.0/res/values-tr/values-tr.xml",

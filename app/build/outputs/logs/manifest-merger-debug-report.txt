@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:2:1-28:12
+ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:2:1-28:12
 MERGED from [com.google.accompanist:accompanist-flowlayout:0.17.0] /Users/yundonghyeon/.gradle/caches/transforms-3/84b283030aea06286339a90b991e39c3/transformed/jetified-accompanist-flowlayout-0.17.0/AndroidManifest.xml:17:1-24:12
 MERGED from [io.github.raamcosta.compose-destinations:core:1.1.2-beta] /Users/yundonghyeon/.gradle/caches/transforms-3/a67466965ab9a6b96d43eda2f2d8cd0c/transformed/jetified-core-1.1.2-beta/AndroidManifest.xml:2:1-9:12
 MERGED from [io.coil-kt:coil-compose:1.4.0] /Users/yundonghyeon/.gradle/caches/transforms-3/1c464ca91d7ba159550011a264febbe4/transformed/jetified-coil-compose-1.4.0/AndroidManifest.xml:2:1-9:12
@@ -95,29 +95,29 @@ MERGED from [androidx.print:print:1.0.0] /Users/yundonghyeon/.gradle/caches/tran
 MERGED from [androidx.exifinterface:exifinterface:1.3.3] /Users/yundonghyeon/.gradle/caches/transforms-3/b86452f81aa2360985d5176f597f7938/transformed/exifinterface-1.3.3/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/yundonghyeon/.gradle/caches/transforms-3/547504b37084c4b6699b34980e5a8bf3/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.dagger:dagger-lint-aar:2.40.5] /Users/yundonghyeon/.gradle/caches/transforms-3/a63ef41e7c61788e7004693c3365d971/transformed/jetified-dagger-lint-aar-2.40.5/AndroidManifest.xml:16:1-19:12
-INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:2:1-28:12
-INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:2:1-28:12
 	package
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:3:5-37
-		INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:3:5-37
+		INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:2:1-28:12
-		INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:2:1-28:12
+		INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:2:1-28:12
-		INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:2:1-28:12
+		INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:5:5-66
+ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:5:5-66
 	android:name
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:5:22-64
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:7:5-26:19
+ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:7:5-26:19
 MERGED from [androidx.compose.ui:ui-tooling:1.1.0] /Users/yundonghyeon/.gradle/caches/transforms-3/e22bcf066ad3af51245068ec65f820a0/transformed/jetified-ui-tooling-1.1.0/AndroidManifest.xml:24:5-28:19
 MERGED from [androidx.compose.ui:ui-tooling:1.1.0] /Users/yundonghyeon/.gradle/caches/transforms-3/e22bcf066ad3af51245068ec65f820a0/transformed/jetified-ui-tooling-1.1.0/AndroidManifest.xml:24:5-28:19
 MERGED from [com.google.android.material:material:1.5.0] /Users/yundonghyeon/.gradle/caches/transforms-3/81e33ad032f598f1e9437e2204a0e044/transformed/material-1.5.0/AndroidManifest.xml:22:5-20
@@ -141,43 +141,43 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] /Users/yundonghyeon/.gradle
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.9.0-alpha02] /Users/yundonghyeon/.gradle/caches/transforms-3/953fc53566c7fee62676092289878cae/transformed/core-1.9.0-alpha02/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:13:9-35
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:13:9-35
 	android:label
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:11:9-41
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:11:9-41
 	android:roundIcon
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:12:9-54
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:12:9-54
 	android:icon
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:10:9-43
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:10:9-43
 	android:allowBackup
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:9:9-35
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:9:9-35
 	android:theme
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:14:9-48
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:14:9-48
 	android:name
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:8:9-41
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:8:9-41
 activity#com.example.coinpocket.MainActivity
-ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:15:9-25:20
+ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:15:9-25:20
 	android:label
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:18:13-45
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:18:13-45
 	android:exported
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:17:13-36
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:17:13-36
 	android:theme
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:19:13-64
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:19:13-64
 	android:name
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:16:13-41
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:16:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:20:13-24:29
+ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:20:13-24:29
 action#android.intent.action.MAIN
-ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:21:17-69
+ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:21:17-69
 	android:name
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:21:25-66
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:21:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:23:17-77
+ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml:23:27-74
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml:23:27-74
 uses-sdk
-INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
-INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
+INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
+INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
 MERGED from [com.google.accompanist:accompanist-flowlayout:0.17.0] /Users/yundonghyeon/.gradle/caches/transforms-3/84b283030aea06286339a90b991e39c3/transformed/jetified-accompanist-flowlayout-0.17.0/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.accompanist:accompanist-flowlayout:0.17.0] /Users/yundonghyeon/.gradle/caches/transforms-3/84b283030aea06286339a90b991e39c3/transformed/jetified-accompanist-flowlayout-0.17.0/AndroidManifest.xml:20:5-22:41
 MERGED from [io.github.raamcosta.compose-destinations:core:1.1.2-beta] /Users/yundonghyeon/.gradle/caches/transforms-3/a67466965ab9a6b96d43eda2f2d8cd0c/transformed/jetified-core-1.1.2-beta/AndroidManifest.xml:5:5-7:41
@@ -360,16 +360,16 @@ MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/yundonghy
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/yundonghyeon/.gradle/caches/transforms-3/547504b37084c4b6699b34980e5a8bf3/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.dagger:dagger-lint-aar:2.40.5] /Users/yundonghyeon/.gradle/caches/transforms-3/a63ef41e7c61788e7004693c3365d971/transformed/jetified-dagger-lint-aar-2.40.5/AndroidManifest.xml:18:3-42
 MERGED from [com.google.dagger:dagger-lint-aar:2.40.5] /Users/yundonghyeon/.gradle/caches/transforms-3/a63ef41e7c61788e7004693c3365d971/transformed/jetified-dagger-lint-aar-2.40.5/AndroidManifest.xml:18:3-42
-INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
-INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
+INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
+INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
-		ADDED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/yundonghyeon/AndroidStudioProjects/CoinPocket/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
+		ADDED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/yundonghyeon/Downloads/CoinPocket-master/app/src/main/AndroidManifest.xml
 activity#androidx.compose.ui.tooling.PreviewActivity
 ADDED from [androidx.compose.ui:ui-tooling:1.1.0] /Users/yundonghyeon/.gradle/caches/transforms-3/e22bcf066ad3af51245068ec65f820a0/transformed/jetified-ui-tooling-1.1.0/AndroidManifest.xml:25:9-27:39
 	android:exported
