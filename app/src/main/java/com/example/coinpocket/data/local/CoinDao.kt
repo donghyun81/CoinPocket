@@ -11,5 +11,4 @@ interface CoinDao {
     @Query("select * from CoinEntity where id= :id")
     suspend fun getCoin(id:Int):CoinEntity?
 
-
 }
