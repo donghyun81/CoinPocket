@@ -54,7 +54,7 @@ fun AmountAddCategoryScreen(
                      contentPadding = PaddingValues(start = 12.dp, end = 12.dp)
                  ) {
                      items(iconSamples) { icon ->
-                         CategoryIconItem(iconSample = icon)
+                         CategoryIconItem(icon = icon.icon)
                      }
                  }
                 

@@ -1,5 +1,6 @@
 package com.example.coinpocket.data.local
 
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.room.*
 import com.example.coinpocket.domain.model.IconSample
 import com.google.gson.Gson
@@ -15,13 +16,10 @@ data class AmountEntity(
     val title:String,
     val isDeposit:Boolean,
     val day: String,
-    val icon:IconSample? = null,
+    val icon:ImageVector,
     val content:String,
     val amount:Int
-) {
-
-}
-
+)
 
 
 

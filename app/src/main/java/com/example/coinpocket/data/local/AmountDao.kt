@@ -1,5 +1,6 @@
 package com.example.coinpocket.data.local
 
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.room.*
 import com.example.coinpocket.domain.model.IconSample
 import kotlinx.coroutines.flow.Flow
@@ -20,7 +21,7 @@ interface AmountDao {
         title:String,
         isDeposit:Boolean,
         day: String,
-        icon: IconSample?,
+        icon: ImageVector,
         content:String,
         amount:Int
     )

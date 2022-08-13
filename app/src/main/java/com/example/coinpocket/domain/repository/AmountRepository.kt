@@ -1,5 +1,6 @@
 package com.example.coinpocket.domain.repository
 
+import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.coinpocket.data.local.AmountEntity
 import com.example.coinpocket.domain.model.IconSample
 import kotlinx.coroutines.flow.Flow
@@ -13,7 +14,7 @@ interface AmountRepository {
         title:String,
         isDeposit:Boolean,
         day: String,
-        icon: IconSample?,
+        icon: ImageVector,
         content:String,
         amount:Int)
 

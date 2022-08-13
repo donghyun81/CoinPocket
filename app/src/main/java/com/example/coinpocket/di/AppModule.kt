@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.example.coinpocket.data.local.CoinPocketDatabase
-import com.example.coinpocket.data.local.IconSampleTypeConverter
 import com.example.coinpocket.data.local.ImageVectorTypeConverter
 import com.example.coinpocket.data.remote.StockApi
 import com.example.coinpocket.data.repository.AmountRepositoryImpl
@@ -48,7 +47,6 @@ object AppModule {
     @Singleton
     fun provideStockDatabase(
         @ApplicationContext context: Context,
-        iconSampleTypeConverter: IconSampleTypeConverter,
         imageVectorTypeConverter: ImageVectorTypeConverter
         ):CoinPocketDatabase {
         return Room
@@ -58,14 +56,9 @@ object AppModule {
             "stockdb.db",
         )
             .fallbackToDestructiveMigration()
-            .addTypeConverter(iconSampleTypeConverter)
             .addTypeConverter(imageVectorTypeConverter)
             .build()
     }
-
-    @Provides
-    @Singleton
-    fun provideIconSampleTypeConverter(moshi: Moshi): IconSampleTypeConverter = IconSampleTypeConverter(moshi)
 
     @Provides
     @Singleton

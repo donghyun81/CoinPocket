@@ -69,12 +69,12 @@ fun CoinAddSalaryScreen(
                 items(iconSamples) { icon ->
                     CategoryIconItem(
                         modifier = Modifier.clickable {
-                           viewModel.onEvent(CoinAddSalaryEvent.OnSelectIcon(icon))
+                           viewModel.onEvent(CoinAddSalaryEvent.OnSelectIcon(icon.icon))
                             scope.launch {
                                     sheetState.collapse()
                             }
                         },
-                        iconSample = icon
+                        icon = icon.icon
                     )
                 }
             }
@@ -108,7 +108,7 @@ fun CoinAddSalaryScreen(
                     }
                 }
             ) {
-                CategoryIconItem(iconSample = state.iconSample)
+                CategoryIconItem(icon = state.icon)
             }
             Spacer(modifier = Modifier.height(16.dp))
             TitleAndAmountField(

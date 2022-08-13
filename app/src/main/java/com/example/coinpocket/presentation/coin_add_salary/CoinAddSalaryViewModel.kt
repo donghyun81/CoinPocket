@@ -42,11 +42,10 @@ class CoinAddSalaryViewModel @Inject constructor(
         when (event) {
             is CoinAddSalaryEvent.SaveSalary -> {
                 viewModelScope.launch {
-                    try {
                         amountUseCases.addAmount(
                             AmountEntity(
                                 day =state.value.day,
-                                icon =state.value.iconSample,
+                                icon =state.value.icon,
                                 isDeposit =state.value.isDeposit,
                                 amount =state.value.amount,
                                 title = state.value.title,
@@ -54,13 +53,6 @@ class CoinAddSalaryViewModel @Inject constructor(
                             )
                         )
                         _eventFlow.emit(UiEvent.SaveNote)
-                    } catch (e: Exception) {
-                        _eventFlow.emit(
-                            UiEvent.ShowSnackbar(
-                                message = e.message ?: "Couldn't save amount"
-                            )
-                        )
-                    }
                 }
             }
             is CoinAddSalaryEvent.OnClickIsDeposit ->{
@@ -84,7 +76,7 @@ class CoinAddSalaryViewModel @Inject constructor(
             }
             is CoinAddSalaryEvent.OnSelectIcon ->{
                 _state.value = state.value.copy(
-                    iconSample = event.icon
+                    icon = event.icon
                 )
             }
         }

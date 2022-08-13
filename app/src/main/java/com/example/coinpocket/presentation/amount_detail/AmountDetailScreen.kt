@@ -21,6 +21,7 @@ import com.example.coinpocket.domain.model.iconSamples
 import com.example.coinpocket.presentation.amount_add_category.component.CategoryIconItem
 import com.example.coinpocket.presentation.coin_add_salary.CoinAddSalaryEvent
 import com.example.coinpocket.presentation.coin_add_salary.CoinAddSalaryViewModel
+import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndAmountField
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndTextField
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -69,15 +70,12 @@ fun AmountDetailScreen(
                 items(iconSamples) { icon ->
                     CategoryIconItem(
                         modifier = Modifier.clickable {
-                            state.iconSample?.copy(
-                                id = icon.id,
-                                icon = icon.icon
-                            )
+                            viewModel.onEvent(AmountDetailEvent.OnSelectIcon(icon.icon))
                             scope.launch {
                                 sheetState.collapse()
                             }
                         },
-                        iconSample = icon
+                        icon = icon.icon
                     )
                 }
             }
@@ -111,37 +109,43 @@ fun AmountDetailScreen(
                     }
                 }
             ) {
-                CategoryIconItem(iconSample = iconSamples[0])
+                CategoryIconItem(icon = state.icon)
             }
-            Spacer(modifier = Modifier.height(16.dp))
-            TitleAndTextField(
-                title = R.string.amount,
-                text = state.amount.toString(),
-                onValueChange = {
-                },
-                keyboardType = KeyboardType.Number,
-                singleLine = true,
-                textStyle = MaterialTheme.typography.h5,
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            TitleAndTextField(
-                title = R.string.title,
-                text = state.title!!,
-                onValueChange = {
-                },
 
-                singleLine = true,
-                textStyle = MaterialTheme.typography.h5
-            )
+            CategoryIconItem(icon = state.icon)
+        }
+            Spacer(modifier = Modifier.height(16.dp))
+            TitleAndAmountField(
+            title= R.string.amount,
+            text = state.amount.toString(),
+            onValueChange = {
+                viewModel.onEvent(AmountDetailEvent.EnteredAmount(it.toInt()))
+            },
+            keyboardType = KeyboardType.Number,
+            singleLine = true,
+            textStyle = MaterialTheme.typography.h5,
+            won = R.string.won
+        )
             Spacer(modifier = Modifier.height(16.dp))
             TitleAndTextField(
-                title = R.string.content,
-                text = state.content!!,
-                onValueChange = {
-                },
-                singleLine = true,
-                textStyle = MaterialTheme.typography.h5
-            )
+            title=R.string.title,
+            text =state.title,
+            onValueChange = {
+                viewModel.onEvent(AmountDetailEvent.EnteredTitle(it))
+            },
+
+            singleLine = true,
+            textStyle = MaterialTheme.typography.h5
+        )
+            Spacer(modifier = Modifier.height(16.dp))
+            TitleAndTextField(
+            title=R.string.content,
+            text = state.content,
+            onValueChange = {
+                viewModel.onEvent(AmountDetailEvent.EnteredContent(it))
+            },
+            singleLine = true,
+            textStyle = MaterialTheme.typography.h5
+        )
         }
     }
-}

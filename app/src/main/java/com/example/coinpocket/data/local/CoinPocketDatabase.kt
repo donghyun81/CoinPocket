@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
     entities = arrayOf(CompanyListingEntity::class,AmountEntity::class),
     version = 1
 )
-@TypeConverters(value = [IconSampleTypeConverter::class, ImageVectorTypeConverter::class])
+@TypeConverters(ImageVectorTypeConverter::class)
 abstract class CoinPocketDatabase:RoomDatabase() {
     abstract val amountDao:AmountDao
     abstract val stockDao:StockDao

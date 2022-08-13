@@ -1,5 +1,6 @@
 package com.example.coinpocket.data.repository
 
+import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.coinpocket.data.local.AmountEntity
 import com.example.coinpocket.data.local.AmountDao
 import com.example.coinpocket.domain.model.IconSample
@@ -19,7 +20,7 @@ class AmountRepositoryImpl(private val dao: AmountDao):AmountRepository {
                                       title:String,
                                       isDeposit:Boolean,
                                       day: String,
-                                      icon: IconSample?,
+                                      icon: ImageVector,
                                       content:String,
                                       amount:Int) {
         return dao.updateAmount(

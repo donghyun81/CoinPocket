@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.coinpocket.data.local.AmountEntity
 import com.example.coinpocket.domain.model.iconSamples
 import com.example.coinpocket.domain.use_case.AmountUseCases
+import com.example.coinpocket.presentation.coin_add_salary.CoinAddSalaryEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -39,7 +40,7 @@ class AmountDetailViewModel @Inject constructor(
                         currentAmountId = amountEntity.id
                         _state.value = state.value.copy(
                             day=amountEntity.day,
-                            iconSample=amountEntity.icon,
+                            icon = amountEntity.icon,
                             isDeposit=amountEntity.isDeposit,
                             amount =amountEntity.amount,
                             title=amountEntity.title,
@@ -54,14 +55,14 @@ class AmountDetailViewModel @Inject constructor(
     fun onEvent(event: AmountDetailEvent){
         when(event) {
             is AmountDetailEvent.UpdateSalary ->{
-                val day= state.value.day?.trim() ?: return
-                val title =state.value.title?.trim() ?: return
-                val content =state.value.content?.trim() ?: return
+                val day= state.value.day
+                val title =state.value.title
+                val content =state.value.content
                 viewModelScope.launch {
                     try {
                         amountUseCases.updateAmount(
                                 day =day,
-                                icon =state.value.iconSample,
+                                icon =state.value.icon,
                                 isDeposit =state.value.isDeposit,
                                 amount =state.value.amount,
                                 title =title,
@@ -79,9 +80,28 @@ class AmountDetailViewModel @Inject constructor(
                     }
                 }
             }
-            is AmountDetailEvent.OnclickSelect->{
-                _state.value.copy(
-                    iconSample = event.icon
+            is AmountDetailEvent.OnClickIsDeposit ->{
+
+            }
+
+            is AmountDetailEvent.EnteredAmount ->{
+                _state.value = state.value.copy(
+                    amount = event.amount
+                )
+            }
+            is AmountDetailEvent.EnteredTitle ->{
+                _state.value = state.value.copy(
+                    title = event.title
+                )
+            }
+            is AmountDetailEvent.EnteredContent ->{
+                _state.value = state.value.copy(
+                    content = event.content
+                )
+            }
+            is AmountDetailEvent.OnSelectIcon ->{
+                _state.value = state.value.copy(
+                    icon = event.icon
                 )
             }
         }
