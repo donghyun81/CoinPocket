@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: io.github.boguszpawlowski.composecalendar:composecalendar:0.5.1@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/05fe746a68556e5c8aa92ba4aa48c0b7/transformed/jetified-composecalendar-0.5.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/99ee9d4b4283c81ec90d1f80eb735ee4/transformed/jetified-composecalendar-0.5.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/99ee9d4b4283c81ec90d1f80eb735ee4/transformed/jetified-composecalendar-0.5.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/99ee9d4b4283c81ec90d1f80eb735ee4/transformed/jetified-composecalendar-0.5.1/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.boguszpawlowski.composecalendar/composecalendar/0.5.1/18a45c3c042eb3398274427da477f2b1df267e29/composecalendar-0.5.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.boguszpawlowski.composecalendar/composecalendar/0.5.1/d1e47e44d493366960fff09eb5c353ed1b59ba12/composecalendar-0.5.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.4.0-RC">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm/1.4.0-RC/baf6322b54b213e474519349aa41aedd841f7ba3/kotlinx-serialization-core-jvm-1.4.0-RC.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm/1.4.0-RC/de470c156e8eca1c3d83fbcf8c657be3d835faed/kotlinx-serialization-core-jvm-1.4.0-RC-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm/1.4.0-RC/aa1e2bc1c799b901c3c1acb3d9cb7036c444fa98/kotlinx-serialization-core-jvm-1.4.0-RC-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
