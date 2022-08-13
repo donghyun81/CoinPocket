@@ -1,7 +1,7 @@
 package com.example.coinpocket.data.repository
 
 import com.example.coinpocket.data.csv.CSVParser
-import com.example.coinpocket.data.local.StockDatabase
+import com.example.coinpocket.data.local.CoinPocketDatabase
 import com.example.coinpocket.data.mapper.toCompanyInfo
 import com.example.coinpocket.data.mapper.toCompanyListing
 import com.example.coinpocket.data.mapper.toCompanyListingEntity
@@ -9,25 +9,24 @@ import com.example.coinpocket.data.remote.StockApi
 import com.example.coinpocket.domain.model.CompanyListing
 import com.example.coinpocket.domain.model.IntradayInfo
 import com.example.coinpocket.domain.repository.StockRepository
-import com.example.coinpocket.presentation.company_info.CompanyInfo
+import com.example.coinpocket.domain.model.CompanyInfo
 import com.example.coinpocket.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
-import java.io.InputStreamReader
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class StockRepositoryImpl @Inject constructor(
     private val api:StockApi,
-    private val db:StockDatabase,
+    private val db:CoinPocketDatabase,
     private val companyListingsParser: CSVParser<CompanyListing>,
     private val intradayInfoParser:CSVParser<IntradayInfo>
 ):StockRepository {
 
-    private val dao = db.dao
+    private val dao = db.stockDao
 
     override suspend fun getCompanyListings(
         fetchFromRemote: Boolean,

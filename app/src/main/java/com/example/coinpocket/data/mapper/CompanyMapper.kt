@@ -3,7 +3,7 @@ package com.example.coinpocket.data.mapper
 import com.example.coinpocket.data.local.CompanyListingEntity
 import com.example.coinpocket.data.remote.dto.CompanyInfoDto
 import com.example.coinpocket.domain.model.CompanyListing
-import com.example.coinpocket.presentation.company_info.CompanyInfo
+import com.example.coinpocket.domain.model.CompanyInfo
 
 fun CompanyListingEntity.toCompanyListing():CompanyListing {
     return CompanyListing(

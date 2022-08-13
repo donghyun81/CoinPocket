@@ -1,13 +1,22 @@
 package com.example.coinpocket.di
 
 import android.app.Application
+import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
-import com.example.coinpocket.data.local.StockDatabase
+import com.example.coinpocket.data.local.CoinPocketDatabase
+import com.example.coinpocket.data.local.IconSampleTypeConverter
+import com.example.coinpocket.data.local.ImageVectorTypeConverter
 import com.example.coinpocket.data.remote.StockApi
+import com.example.coinpocket.data.repository.AmountRepositoryImpl
+import com.example.coinpocket.domain.repository.AmountRepository
+import com.example.coinpocket.domain.use_case.*
+import com.google.gson.Gson
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -17,6 +26,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+    @Provides
+    @Singleton
+    fun provideMoshi(): Moshi = Moshi.Builder()
+        .addLast(KotlinJsonAdapterFactory())
+        .build()
 
     @Provides
     @Singleton
@@ -31,13 +46,53 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideStockDatabase(app: Application):StockDatabase {
-        return Room.databaseBuilder(
-            app,
-            StockDatabase::class.java,
-            "stockdb.db"
-        ).build()
-
-
+    fun provideStockDatabase(
+        @ApplicationContext context: Context,
+        iconSampleTypeConverter: IconSampleTypeConverter,
+        imageVectorTypeConverter: ImageVectorTypeConverter
+        ):CoinPocketDatabase {
+        return Room
+            .databaseBuilder(
+            context,
+            CoinPocketDatabase::class.java,
+            "stockdb.db",
+        )
+            .fallbackToDestructiveMigration()
+            .addTypeConverter(iconSampleTypeConverter)
+            .addTypeConverter(imageVectorTypeConverter)
+            .build()
     }
+
+    @Provides
+    @Singleton
+    fun provideIconSampleTypeConverter(moshi: Moshi): IconSampleTypeConverter = IconSampleTypeConverter(moshi)
+
+    @Provides
+    @Singleton
+    fun provideImageVectorTypeConverter(moshi: Moshi): ImageVectorTypeConverter = ImageVectorTypeConverter(moshi)
+
+    @Provides
+    @Singleton
+    fun provideCoinRepository(db:CoinPocketDatabase): AmountRepository {
+        return AmountRepositoryImpl(db.amountDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCoinUseCases(repository: AmountRepository):AmountUseCases{
+        return AmountUseCases(
+            getCoin = GetAmount(repository = repository),
+            addAmount = AddAmount(repository = repository),
+            getDayAccounts = GetDayAccounts(repository=repository),
+            deleteAmount = DeleteAmount(repository),
+            updateAmount = UpdateAmount(repository)
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideFilterOutDigitsUseCase(): FilterOutDigits {
+        return FilterOutDigits()
+    }
+
 }

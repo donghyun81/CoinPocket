@@ -4,6 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d87409e0ffb4d8a3896ef642b3641b1f/transformed/jetified-paging-compose-1.0.0-alpha14/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d87409e0ffb4d8a3896ef642b3641b1f/transformed/jetified-paging-compose-1.0.0-alpha14/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d87409e0ffb4d8a3896ef642b3641b1f/transformed/jetified-paging-compose-1.0.0-alpha14/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b7ac62605bac4cdf5e53e369d4b28e9b/transformed/jetified-paging-compose-1.0.0-alpha14/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b7ac62605bac4cdf5e53e369d4b28e9b/transformed/jetified-paging-compose-1.0.0-alpha14/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b7ac62605bac4cdf5e53e369d4b28e9b/transformed/jetified-paging-compose-1.0.0-alpha14/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

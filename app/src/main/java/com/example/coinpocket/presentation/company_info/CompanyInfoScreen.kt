@@ -1,6 +1,5 @@
 package com.example.coinpocket.presentation.company_info
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
@@ -18,9 +17,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ramcosta.composedestinations.annotation.Destination
-
 @Composable
-@Destination
+@Destination()
 fun CompanyinfoScreen(
     symbol:String,
     viewModel: CompanyInfoViewModel= hiltViewModel()

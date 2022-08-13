@@ -18,11 +18,11 @@ import com.example.coinpocket.presentation.destinations.CompanyinfoScreenDestina
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.navigation.DestinationsNavController
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
+
 @Composable
-@Destination(start = true)
+@Destination
 fun CompanyListingScreen(
     navigator: DestinationsNavigator,
     viewModel: CompanyListingsViewModel = hiltViewModel()
