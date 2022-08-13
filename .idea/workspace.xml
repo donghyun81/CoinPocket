@@ -4,33 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce8e56a2-dbd4-456d-a75d-cd2917dba4a9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" afterDir="false" />
+    <list default="true" id="920eb5dc-67c7-4b05-9867-91e73d799900" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/img_1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/data/local/AmountDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/data/local/AmountDao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/data/local/AmountEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/data/local/AmountEntity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/data/local/CoinPocketDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/data/local/CoinPocketDatabase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/data/local/TypeConverters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/data/local/TypeConverters.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/data/repository/AmountRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/data/repository/AmountRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/di/AppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/di/AppModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/domain/repository/AmountRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/domain/repository/AmountRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/domain/use_case/UpdateAmount.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/domain/use_case/UpdateAmount.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/amount_add_category/AmountAddCategoryScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/amount_add_category/AmountAddCategoryScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/amount_detail/AmountDetailEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/amount_detail/AmountDetailEvent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/amount_detail/AmountDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/amount_detail/AmountDetailScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/amount_detail/AmountDetailState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/amount_detail/AmountDetailState.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/amount_detail/AmountDetailViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/amount_detail/AmountDetailViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/coin_add_salary/CoinAddSalaryEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/coin_add_salary/CoinAddSalaryEvent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/coin_add_salary/CoinAddSalaryScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/coin_add_salary/CoinAddSalaryScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/coin_add_salary/CoinAddSalaryState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/coin_add_salary/CoinAddSalaryState.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/coin_add_salary/CoinAddSalaryViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/coin_add_salary/CoinAddSalaryViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/coin_add_salary/components/CategoryIconItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/coinpocket/presentation/coin_add_salary/components/CategoryIconItem.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="2DHp6vIKNL2KxnNjw7rclD4tXCx" />
+  <component name="ProjectId" id="2DIR0paMuiHXjC2Hz94DWBLxWdt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,12 +33,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Android App.Coin Pocket.Coin_Pocket.app">
-    <configuration name="Coin Pocket.Coin_Pocket.app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+    <configuration name="Coin Pocket.Coin_Pocket.app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="Coin Pocket.Coin_Pocket.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -189,11 +169,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ce8e56a2-dbd4-456d-a75d-cd2917dba4a9" name="Changes" comment="" />
-      <created>1660365692496</created>
+      <changelist id="920eb5dc-67c7-4b05-9867-91e73d799900" name="Changes" comment="" />
+      <created>1660384391722</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1660365692496</updated>
+      <updated>1660384391722</updated>
     </task>
     <servers />
   </component>
@@ -207,5 +187,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
