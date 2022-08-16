@@ -14,13 +14,19 @@ interface AmountRepository {
         title:String,
         isDeposit:Boolean,
         day: String,
-        icon: ImageVector,
+        imageUrl: Int,
         content:String,
         amount:Int)
 
     suspend fun getAmount(id: Int): AmountEntity?
 
-    suspend fun getDayAccounts(day:String): Flow<List<AmountEntity>>
+    fun getDays():Flow<List<String>>
+
+    fun getDayAmout(day:String):Flow<List<Int>>
+
+    fun getDayAccounts(day:String): Flow<List<AmountEntity>>
+
+    fun getAccounts():Flow<List<AmountEntity>>
 
     suspend fun deleteCoin(amountEntity: AmountEntity)
 

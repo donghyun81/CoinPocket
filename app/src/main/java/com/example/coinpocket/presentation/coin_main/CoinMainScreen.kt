@@ -21,12 +21,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.coinpocket.data.local.AmountEntity
 import com.example.coinpocket.presentation.coin_main.components.CoinMainItem
 import com.example.coinpocket.presentation.destinations.AmountDetailScreenDestination
 import com.example.coinpocket.presentation.destinations.CoinAddSalaryScreenDestination
+import com.example.coinpocket.util.ext.totalDayIncome
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
-import io.github.boguszpawlowski.composecalendar.CalendarState
 import io.github.boguszpawlowski.composecalendar.SelectableCalendar
 import io.github.boguszpawlowski.composecalendar.day.DayState
 import io.github.boguszpawlowski.composecalendar.header.MonthState
@@ -77,24 +78,24 @@ fun CoinMainScreen(
                         state = it,
                         onClick = { selectedDay->
                             viewModel.onEvent(CoinMainEvent.OnSelectDay(selectedDay.toString()))
-                        }
+                        },
+                        amountEntitys = state.getAmounts,
                     )
                 },
                 monthHeader = { MonthHeader(monthState = it)},
                 weekHeader = { WeekHeader(daysOfWeek = it)},
                 calendarState = calendarState
             )
-            Text(text = viewModel.state.value.day)
             Spacer(modifier = Modifier.height(16.dp))
             LazyColumn(modifier = Modifier.fillMaxSize()){
-                items(state.amountEntity) { coin ->
+                items(state.getDayAmountEntity) { amountEntity ->
                     CoinMainItem(
                         modifier = Modifier.clickable {
-                            navigator.navigate(AmountDetailScreenDestination(id = coin.id!!))
+                            navigator.navigate(AmountDetailScreenDestination(amountId = amountEntity.id))
                         },
-                        amountEntity = coin,
+                        amountEntity = amountEntity,
                         onDeleteClick = {
-                                viewModel.onEvent (CoinMainEvent.OnDeleteCoinClick(coin))
+                                viewModel.onEvent (CoinMainEvent.OnDeleteCoinClick(amountEntity))
                             scope.launch {
                                 val result = scaffoldState.snackbarHostState.showSnackbar(
                                     message = "Coin deleted",
@@ -123,12 +124,12 @@ public fun <T : SelectionState> DefaultDay(
     selectionColor: Color = MaterialTheme.colors.secondary,
     currentDayColor: Color = MaterialTheme.colors.primary,
     onClick: (LocalDate) -> Unit = {},
+    amountEntitys:List<AmountEntity>,
 ) {
     val date = state.date
     val selectionState = state.selectionState
-
     val isSelected = selectionState.isDateSelected(date)
-
+    val inCome = amountEntitys.totalDayIncome(date.toString())
     Card(
         modifier = modifier
             .aspectRatio(1f)
@@ -155,16 +156,13 @@ public fun <T : SelectionState> DefaultDay(
                     style = MaterialTheme.typography.subtitle2,
 
                     )
-                if(date.dayOfMonth.toString()=="3"){
-                    Text(
-                        fontSize = 12.sp,
-                        text = "387987138798",
-                        textAlign = TextAlign.Center,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
-
-                    )
-                }
+                Text(
+                    fontSize = 12.sp,
+                    text = inCome,
+                    textAlign = TextAlign.Center,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
             }
         }
     }

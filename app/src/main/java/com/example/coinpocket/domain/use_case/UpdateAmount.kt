@@ -12,7 +12,7 @@ class UpdateAmount (
                                 title:String,
                                 isDeposit:Boolean,
                                 day: String,
-                                icon: ImageVector,
+                                imageUrl:Int,
                                 content:String,
                                 amount:Int){
         repository.updateAmount(
@@ -20,7 +20,7 @@ class UpdateAmount (
             title,
             isDeposit,
             day,
-            icon,
+            imageUrl,
             content,
             amount)
     }

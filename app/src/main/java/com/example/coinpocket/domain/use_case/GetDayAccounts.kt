@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.map
 class GetDayAccounts(
     private val repository:AmountRepository
     ){
-        suspend operator fun invoke(day:String) : Flow<List<AmountEntity>> {
+       operator fun invoke(day:String) : Flow<List<AmountEntity>> {
             return repository.getDayAccounts(day)
         }
 

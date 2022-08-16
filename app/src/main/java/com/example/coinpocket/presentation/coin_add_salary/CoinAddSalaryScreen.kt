@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.coinpocket.R
 import com.example.coinpocket.domain.model.iconSamples
+import com.example.coinpocket.domain.model.imageSamples
 import com.example.coinpocket.presentation.amount_add_category.component.CategoryIconItem
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndAmountField
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndTextField
@@ -66,15 +67,15 @@ fun CoinAddSalaryScreen(
                 cells = GridCells.Fixed(4),
                 contentPadding = PaddingValues(start = 12.dp, end = 12.dp)
             ) {
-                items(iconSamples) { icon ->
+                items(imageSamples) { image ->
                     CategoryIconItem(
                         modifier = Modifier.clickable {
-                           viewModel.onEvent(CoinAddSalaryEvent.OnSelectIcon(icon.icon))
+                           viewModel.onEvent(CoinAddSalaryEvent.OnSelectIcon(image.imageUrl))
                             scope.launch {
                                     sheetState.collapse()
                             }
                         },
-                        icon = icon.icon
+                        imageUrl = image.imageUrl
                     )
                 }
             }
@@ -94,8 +95,11 @@ fun CoinAddSalaryScreen(
 
     ){
         Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally){
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)        ,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ){
             Text(
                 modifier = Modifier
                     .fillMaxWidth(),
@@ -104,25 +108,33 @@ fun CoinAddSalaryScreen(
             Button(
                 onClick = {
                     scope.launch {
-                        sheetState.expand()
+                        if (sheetState.isCollapsed) {
+                            sheetState.expand()
+                        } else {
+                            sheetState.collapse()
+                        }
                     }
                 }
             ) {
-                CategoryIconItem(icon = state.icon)
+                CategoryIconItem(imageUrl = state.image)
             }
-            Spacer(modifier = Modifier.height(16.dp))
             TitleAndAmountField(
                 title= R.string.amount,
                 text = state.amount.toString(),
                 onValueChange = {
-                                viewModel.onEvent(CoinAddSalaryEvent.EnteredAmount(it.toInt()))
+                    if(it==""){
+                        viewModel.onEvent(CoinAddSalaryEvent.EnteredAmount(0))
+                        }
+                        else{
+                        viewModel.onEvent(CoinAddSalaryEvent.EnteredAmount(it.toInt()))
+
+                        }
                 },
                 keyboardType = KeyboardType.Number,
                 singleLine = true,
                 textStyle = MaterialTheme.typography.h5,
                 won = R.string.won
             )
-            Spacer(modifier = Modifier.height(16.dp))
             TitleAndTextField(
                 title=R.string.title,
                 text =state.title,
@@ -133,7 +145,6 @@ fun CoinAddSalaryScreen(
                 singleLine = true,
                 textStyle = MaterialTheme.typography.h5
             )
-            Spacer(modifier = Modifier.height(16.dp))
             TitleAndTextField(
                 title=R.string.content,
                 text = state.content,

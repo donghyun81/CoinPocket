@@ -16,8 +16,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.coinpocket.R
 import com.example.coinpocket.domain.model.iconSamples
+import com.example.coinpocket.domain.model.imageSamples
 import com.example.coinpocket.presentation.amount_add_category.component.CategoryIconItem
 import com.example.coinpocket.presentation.coin_add_salary.CoinAddSalaryEvent
 import com.example.coinpocket.presentation.coin_add_salary.CoinAddSalaryViewModel
@@ -29,12 +31,12 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class, ExperimentalFoundationApi::class)
-@Destination
+@Destination()
 @Composable
 fun AmountDetailScreen(
-    id:Int,
+    amountId:Int?,
     navigator: DestinationsNavigator,
-    viewModel: AmountDetailViewModel
+    viewModel: AmountDetailViewModel = hiltViewModel()
 ) {
     val sheetState = rememberBottomSheetState(
         initialValue = BottomSheetValue.Collapsed
@@ -54,7 +56,7 @@ fun AmountDetailScreen(
                         message = event.message
                     )
                 }
-                is AmountDetailViewModel.UiEvent.SaveAmount -> {
+                is AmountDetailViewModel.UiEvent.UpdateAmount -> {
                     navigator.navigateUp()
                 }
             }
@@ -67,15 +69,15 @@ fun AmountDetailScreen(
                 cells = GridCells.Fixed(4),
                 contentPadding = PaddingValues(start = 12.dp, end = 12.dp)
             ) {
-                items(iconSamples) { icon ->
+                items(imageSamples) { image ->
                     CategoryIconItem(
                         modifier = Modifier.clickable {
-                            viewModel.onEvent(AmountDetailEvent.OnSelectIcon(icon.icon))
+                            viewModel.onEvent(AmountDetailEvent.OnSelectIcon(image.imageUrl))
                             scope.launch {
                                 sheetState.collapse()
                             }
                         },
-                        icon = icon.icon
+                        imageUrl = image.imageUrl
                     )
                 }
             }
@@ -94,58 +96,65 @@ fun AmountDetailScreen(
 
         ) {
         Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)        ,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ){
             Text(
                 modifier = Modifier
                     .fillMaxWidth(),
-                text = state.day!!
+                text =state.day
             )
             Button(
                 onClick = {
                     scope.launch {
-                        sheetState.expand()
+                        if (sheetState.isCollapsed) {
+                            sheetState.expand()
+                        } else {
+                            sheetState.collapse()
+                        }
                     }
                 }
             ) {
-                CategoryIconItem(icon = state.icon)
+                CategoryIconItem(imageUrl = state.imageUrl)
             }
-
-            CategoryIconItem(icon = state.icon)
-        }
-            Spacer(modifier = Modifier.height(16.dp))
             TitleAndAmountField(
-            title= R.string.amount,
-            text = state.amount.toString(),
-            onValueChange = {
-                viewModel.onEvent(AmountDetailEvent.EnteredAmount(it.toInt()))
-            },
-            keyboardType = KeyboardType.Number,
-            singleLine = true,
-            textStyle = MaterialTheme.typography.h5,
-            won = R.string.won
-        )
-            Spacer(modifier = Modifier.height(16.dp))
-            TitleAndTextField(
-            title=R.string.title,
-            text =state.title,
-            onValueChange = {
-                viewModel.onEvent(AmountDetailEvent.EnteredTitle(it))
-            },
+                title= R.string.amount,
+                text = state.amount.toString(),
+                onValueChange = {
+                    if(it==""){
+                        viewModel.onEvent(AmountDetailEvent.EnteredAmount(0))
+                    }
+                    else{
+                        viewModel.onEvent(AmountDetailEvent.EnteredAmount(it.toInt()))
 
-            singleLine = true,
-            textStyle = MaterialTheme.typography.h5
-        )
-            Spacer(modifier = Modifier.height(16.dp))
+                    }
+                },
+                keyboardType = KeyboardType.Number,
+                singleLine = true,
+                textStyle = MaterialTheme.typography.h5,
+                won = R.string.won
+            )
             TitleAndTextField(
-            title=R.string.content,
-            text = state.content,
-            onValueChange = {
-                viewModel.onEvent(AmountDetailEvent.EnteredContent(it))
-            },
-            singleLine = true,
-            textStyle = MaterialTheme.typography.h5
-        )
+                title=R.string.title,
+                text =state.title,
+                onValueChange = {
+                    viewModel.onEvent(AmountDetailEvent.EnteredTitle(it))
+                },
+
+                singleLine = true,
+                textStyle = MaterialTheme.typography.h5
+            )
+            TitleAndTextField(
+                title=R.string.content,
+                text = state.content,
+                onValueChange = {
+                    viewModel.onEvent(AmountDetailEvent.EnteredContent(it))
+                },
+                singleLine = true,
+                textStyle = MaterialTheme.typography.h5
+            )
+        }
         }
     }

@@ -3,12 +3,28 @@ package com.example.coinpocket.domain.model
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.example.coinpocket.R
 
 data class IconSample(
     val id:Long,
     val icon:ImageVector
 )
 
+data class ImageSample(
+    val id:Long,
+    val imageUrl:Int
+)
+
+val imageSamples = listOf(
+    ImageSample(
+        id=1L,
+        imageUrl = R.drawable.img
+    ),
+    ImageSample(
+        id=2L,
+        imageUrl = R.drawable.img_1
+    )
+)
 val iconSamples = listOf(
     IconSample(
         id=1L,

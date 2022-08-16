@@ -6,6 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.coinpocket.data.local.AmountEntity
+import com.example.coinpocket.data.local.InvalidAmountException
 import com.example.coinpocket.domain.model.iconSamples
 import com.example.coinpocket.domain.use_case.AmountUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -45,7 +46,7 @@ class CoinAddSalaryViewModel @Inject constructor(
                         amountUseCases.addAmount(
                             AmountEntity(
                                 day =state.value.day,
-                                icon =state.value.icon,
+                                imageUrl =state.value.image,
                                 isDeposit =state.value.isDeposit,
                                 amount =state.value.amount,
                                 title = state.value.title,
@@ -60,10 +61,21 @@ class CoinAddSalaryViewModel @Inject constructor(
             }
 
             is CoinAddSalaryEvent.EnteredAmount ->{
-                _state.value = state.value.copy(
-                    amount = event.amount
-                )
-            }
+                when(event.amount) {
+                   is Int -> {
+                        _state.value = state.value.copy(
+                            amount = event.amount
+                        )
+                    }
+                   else -> {
+                       _state.value = state.value.copy(
+                           amount = 0
+                       )
+                   }
+                }
+
+
+                }
             is CoinAddSalaryEvent.EnteredTitle ->{
                 _state.value = state.value.copy(
                     title = event.title
@@ -76,7 +88,7 @@ class CoinAddSalaryViewModel @Inject constructor(
             }
             is CoinAddSalaryEvent.OnSelectIcon ->{
                 _state.value = state.value.copy(
-                    icon = event.icon
+                    image = event.imageUrl
                 )
             }
         }

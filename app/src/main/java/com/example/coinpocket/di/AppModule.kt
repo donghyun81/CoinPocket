@@ -1,6 +1,5 @@
 package com.example.coinpocket.di
 
-import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.example.coinpocket.data.local.CoinPocketDatabase
@@ -9,7 +8,6 @@ import com.example.coinpocket.data.remote.StockApi
 import com.example.coinpocket.data.repository.AmountRepositoryImpl
 import com.example.coinpocket.domain.repository.AmountRepository
 import com.example.coinpocket.domain.use_case.*
-import com.google.gson.Gson
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -56,7 +54,6 @@ object AppModule {
             "stockdb.db",
         )
             .fallbackToDestructiveMigration()
-            .addTypeConverter(imageVectorTypeConverter)
             .build()
     }
 
@@ -74,11 +71,14 @@ object AppModule {
     @Singleton
     fun provideCoinUseCases(repository: AmountRepository):AmountUseCases{
         return AmountUseCases(
-            getCoin = GetAmount(repository = repository),
+            getAmount = GetAmount(repository = repository),
             addAmount = AddAmount(repository = repository),
             getDayAccounts = GetDayAccounts(repository=repository),
             deleteAmount = DeleteAmount(repository),
-            updateAmount = UpdateAmount(repository)
+            updateAmount = UpdateAmount(repository),
+            getAmounts = GetAmounts(repository),
+            getDayAmount = GetDayAmount(repository),
+            getDays = GetDays(repository)
         )
     }
 

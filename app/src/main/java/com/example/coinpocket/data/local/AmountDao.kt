@@ -1,5 +1,6 @@
 package com.example.coinpocket.data.local
 
+import androidx.annotation.DrawableRes
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.room.*
 import com.example.coinpocket.domain.model.IconSample
@@ -13,7 +14,7 @@ interface AmountDao {
     @Query("update AmountEntity set title =:title," +
             "isDeposit=:isDeposit," +
             "day=:day," +
-            "icon=:icon," +
+            "imageUrl=:imageUrl," +
             "content=:content," +
             "amount=:amount where id=:id")
     suspend fun updateAmount(
@@ -21,7 +22,7 @@ interface AmountDao {
         title:String,
         isDeposit:Boolean,
         day: String,
-        icon: ImageVector,
+        imageUrl: Int,
         content:String,
         amount:Int
     )
@@ -34,5 +35,14 @@ interface AmountDao {
 
     @Delete
     suspend fun deleteAmount(amountEntity: AmountEntity)
+
+    @Query("select * from AmountEntity")
+    fun getAmounts():Flow<List<AmountEntity>>
+
+    @Query("select amount from AmountEntity where day= :day")
+    fun getDayAmount(day: String):Flow<List<Int>>
+
+    @Query("select day from AmountEntity")
+    fun getDays():Flow<List<String>>
 
 }

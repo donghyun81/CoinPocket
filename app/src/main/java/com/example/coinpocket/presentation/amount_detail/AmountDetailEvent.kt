@@ -10,5 +10,5 @@ sealed class AmountDetailEvent {
     data class EnteredAmount(val amount: Int): AmountDetailEvent()
     data class EnteredTitle(val title: String): AmountDetailEvent()
     data class EnteredContent(val content: String): AmountDetailEvent()
-    data class OnSelectIcon(val icon:ImageVector): AmountDetailEvent()
+    data class OnSelectIcon(val imageUrl:Int): AmountDetailEvent()
 }

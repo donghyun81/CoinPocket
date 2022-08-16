@@ -1,5 +1,6 @@
 package com.example.coinpocket.data.local
 
+import androidx.annotation.DrawableRes
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.room.*
 import com.example.coinpocket.domain.model.IconSample
@@ -16,10 +17,9 @@ data class AmountEntity(
     val title:String,
     val isDeposit:Boolean,
     val day: String,
-    val icon:ImageVector,
+    @DrawableRes val imageUrl: Int,
     val content:String,
     val amount:Int
 )
 
-
-
+class InvalidAmountException(message: String): Exception(message)

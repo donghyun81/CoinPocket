@@ -15,6 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import org.w3c.dom.Text
 
 @Composable
@@ -29,10 +30,10 @@ fun TitleAndAmountField(
     singleLine: Boolean = false,
 ) {
     Row(
-        modifier
+        modifier.fillMaxWidth()
     ) {
         Text(text = stringResource(id = title))
-        Spacer(modifier = modifier.width(6.dp))
+        Spacer(Modifier.weight(1f))
         BasicTextField(
             value = text,
             onValueChange = onValueChange,
@@ -42,7 +43,6 @@ fun TitleAndAmountField(
             singleLine = singleLine,
             textStyle = textStyle,
             modifier = Modifier
-                .fillMaxWidth()
                 .align(Alignment.CenterVertically)
         )
        Text(text = stringResource(id = won) )

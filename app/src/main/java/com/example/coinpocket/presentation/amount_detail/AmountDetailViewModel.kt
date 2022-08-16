@@ -1,15 +1,11 @@
 package com.example.coinpocket.presentation.amount_detail
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.coinpocket.data.local.AmountEntity
-import com.example.coinpocket.domain.model.iconSamples
 import com.example.coinpocket.domain.use_case.AmountUseCases
-import com.example.coinpocket.presentation.coin_add_salary.CoinAddSalaryEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -20,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class AmountDetailViewModel @Inject constructor(
     private val amountUseCases: AmountUseCases,
-    savedStateHandle: SavedStateHandle
+    private val savedStateHandle: SavedStateHandle
 ):ViewModel() {
 
     private val _state = mutableStateOf(AmountDetailState())
@@ -33,20 +29,19 @@ class AmountDetailViewModel @Inject constructor(
 
 
     init {
-        savedStateHandle.get<Int>("amountId")?.let { amountId ->
-            if (amountId != -1) {
                 viewModelScope.launch {
-                    amountUseCases.getCoin(amountId)?.also { amountEntity ->
+                    val amountId = savedStateHandle.get<Int>("amountId") ?: return@launch
+                    if (amountId != -1) {
+                    amountUseCases.getAmount(amountId)?.also { amountEntity ->
                         currentAmountId = amountEntity.id
                         _state.value = state.value.copy(
                             day=amountEntity.day,
-                            icon = amountEntity.icon,
+                            imageUrl = amountEntity.imageUrl,
                             isDeposit=amountEntity.isDeposit,
                             amount =amountEntity.amount,
                             title=amountEntity.title,
                             content=amountEntity.content,
-                        )
-                    }
+                      )
                 }
             }
         }
@@ -62,19 +57,19 @@ class AmountDetailViewModel @Inject constructor(
                     try {
                         amountUseCases.updateAmount(
                                 day =day,
-                                icon =state.value.icon,
+                                imageUrl =state.value.imageUrl,
                                 isDeposit =state.value.isDeposit,
                                 amount =state.value.amount,
                                 title =title,
                                 content =content,
                                 id=currentAmountId
                         )
-
+                        _eventFlow.emit(UiEvent.UpdateAmount)
 
                     }catch (e:Exception){
                         _eventFlow.emit(
                            UiEvent.ShowSnackbar(
-                                message = e.message ?: "Couldn't save amount"
+                                message = e.message ?: "Couldn't update amount"
                             )
                         )
                     }
@@ -101,7 +96,7 @@ class AmountDetailViewModel @Inject constructor(
             }
             is AmountDetailEvent.OnSelectIcon ->{
                 _state.value = state.value.copy(
-                    icon = event.icon
+                    imageUrl = event.imageUrl
                 )
             }
         }
@@ -109,6 +104,6 @@ class AmountDetailViewModel @Inject constructor(
 
     sealed class UiEvent {
         data class ShowSnackbar(val message: String): UiEvent()
-        object SaveAmount: UiEvent()
+        object UpdateAmount: UiEvent()
     }
 }

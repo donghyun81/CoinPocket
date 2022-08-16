@@ -16,11 +16,19 @@ class AmountRepositoryImpl(private val dao: AmountDao):AmountRepository {
        return dao.getAmount(id)
     }
 
+    override fun getDays(): Flow<List<String>> {
+        return dao.getDays()
+    }
+
+    override fun getDayAmout(day: String): Flow<List<Int>> {
+        return dao.getDayAmount(day)
+    }
+
     override suspend fun updateAmount(id:Int?,
                                       title:String,
                                       isDeposit:Boolean,
                                       day: String,
-                                      icon: ImageVector,
+                                      imageUrl:Int ,
                                       content:String,
                                       amount:Int) {
         return dao.updateAmount(
@@ -28,14 +36,18 @@ class AmountRepositoryImpl(private val dao: AmountDao):AmountRepository {
             title,
             isDeposit,
             day,
-            icon,
+            imageUrl,
             content,
             amount)
     }
 
 
-    override suspend fun getDayAccounts(day: String): Flow<List<AmountEntity>> {
+    override fun getDayAccounts(day: String): Flow<List<AmountEntity>> {
         return dao.getDayAmounts(day)
+    }
+
+    override fun getAccounts(): Flow<List<AmountEntity>> {
+        return dao.getAmounts()
     }
 
     override suspend fun deleteCoin(amountEntity: AmountEntity) {

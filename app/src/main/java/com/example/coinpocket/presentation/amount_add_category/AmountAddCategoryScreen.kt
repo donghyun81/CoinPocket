@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.coinpocket.domain.model.IconSample
+import com.example.coinpocket.domain.model.imageSamples
 import com.example.coinpocket.presentation.amount_add_category.component.CategoryIconItem
 import com.ramcosta.composedestinations.annotation.Destination
 
@@ -53,8 +54,8 @@ fun AmountAddCategoryScreen(
                      modifier = modifier,
                      contentPadding = PaddingValues(start = 12.dp, end = 12.dp)
                  ) {
-                     items(iconSamples) { icon ->
-                         CategoryIconItem(icon = icon.icon)
+                     items(imageSamples) { image ->
+                         CategoryIconItem(imageUrl = image.imageUrl)
                      }
                  }
                 
