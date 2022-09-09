@@ -1,13 +1,12 @@
 package com.example.coinpocket.presentation.amount_detail
 
-import androidx.compose.ui.graphics.vector.ImageVector
-import com.example.coinpocket.domain.model.IconSample
-import com.example.coinpocket.domain.model.iconSamples
-import com.example.coinpocket.domain.model.imageSamples
+import com.example.coinpocket.R
+import com.example.coinpocket.domain.model.CategoryImage
+import com.example.coinpocket.domain.model.incomeCategoryImages
 
 data class AmountDetailState (
     val day:String="",
-    val imageUrl:Int = imageSamples[0].imageUrl,
+    val categoryImage: CategoryImage = incomeCategoryImages[0],
     val isDeposit:Boolean = true,
     val amount:Int=0,
     val title:String = "",

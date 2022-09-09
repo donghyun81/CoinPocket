@@ -6,21 +6,18 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Save
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.coinpocket.R
-import com.example.coinpocket.domain.model.iconSamples
-import com.example.coinpocket.domain.model.imageSamples
+import com.example.coinpocket.domain.model.expenseCategoryImages
+import com.example.coinpocket.domain.model.incomeCategoryImages
 import com.example.coinpocket.presentation.amount_add_category.component.CategoryIconItem
+import com.example.coinpocket.presentation.coin_add_salary.components.DepositButton
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndAmountField
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndTextField
 import com.ramcosta.composedestinations.annotation.Destination
@@ -43,9 +40,9 @@ fun CoinAddSalaryScreen(
         bottomSheetState = sheetState
     )
     val state = viewModel.state.value
-
+    val isDepositState = remember{ mutableStateOf(true)}
     val scope = rememberCoroutineScope()
-
+    viewModel.getIsDeposit(isDepositState.value)
     LaunchedEffect(key1 = true) {
         viewModel.eventFlow.collectLatest { event ->
             when(event) {
@@ -67,16 +64,33 @@ fun CoinAddSalaryScreen(
                 cells = GridCells.Fixed(4),
                 contentPadding = PaddingValues(start = 12.dp, end = 12.dp)
             ) {
-                items(imageSamples) { image ->
-                    CategoryIconItem(
-                        modifier = Modifier.clickable {
-                           viewModel.onEvent(CoinAddSalaryEvent.OnSelectIcon(image.imageUrl))
-                            scope.launch {
+                if(isDepositState.value) {
+                    items(incomeCategoryImages) { image ->
+                        CategoryIconItem(
+                            modifier = Modifier.clickable {
+                                viewModel.onEvent(CoinAddSalaryEvent.OnSelectIcon(image))
+                                scope.launch {
                                     sheetState.collapse()
-                            }
-                        },
-                        imageUrl = image.imageUrl
-                    )
+                                }
+                            },
+                            imageUrl = image.imageUrl,
+                            color = image.color
+                        )
+                    }
+                }
+              else{
+                    items(expenseCategoryImages) { image ->
+                        CategoryIconItem(
+                            modifier = Modifier.clickable {
+                                viewModel.onEvent(CoinAddSalaryEvent.OnSelectIcon(image))
+                                scope.launch {
+                                    sheetState.collapse()
+                                }
+                            },
+                            imageUrl = image.imageUrl,
+                            color = image.color
+                        )
+                    }
                 }
             }
         },
@@ -100,6 +114,7 @@ fun CoinAddSalaryScreen(
                 .padding(16.dp)        ,
             horizontalAlignment = Alignment.CenterHorizontally,
         ){
+
             Text(
                 modifier = Modifier
                     .fillMaxWidth(),
@@ -116,8 +131,17 @@ fun CoinAddSalaryScreen(
                     }
                 }
             ) {
-                CategoryIconItem(imageUrl = state.image)
+                CategoryIconItem(
+                    imageUrl = state.categoryImage!!.imageUrl,
+                    color =state.categoryImage!!.color
+                )
             }
+
+            DepositButton(
+                isIncomeState= isDepositState,
+            )
+            Text(text = isDepositState.value.toString())
+            Text(text = state.isDeposit.toString())
             TitleAndAmountField(
                 title= R.string.amount,
                 text = state.amount.toString(),

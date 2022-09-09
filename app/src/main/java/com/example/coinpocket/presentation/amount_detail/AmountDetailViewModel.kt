@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.coinpocket.domain.use_case.AmountUseCases
+import com.example.coinpocket.domain.use_case.amount.AmountUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -36,7 +36,7 @@ class AmountDetailViewModel @Inject constructor(
                         currentAmountId = amountEntity.id
                         _state.value = state.value.copy(
                             day=amountEntity.day,
-                            imageUrl = amountEntity.imageUrl,
+                            categoryImage = amountEntity.categoryImage,
                             isDeposit=amountEntity.isDeposit,
                             amount =amountEntity.amount,
                             title=amountEntity.title,
@@ -50,18 +50,15 @@ class AmountDetailViewModel @Inject constructor(
     fun onEvent(event: AmountDetailEvent){
         when(event) {
             is AmountDetailEvent.UpdateSalary ->{
-                val day= state.value.day
-                val title =state.value.title
-                val content =state.value.content
                 viewModelScope.launch {
                     try {
                         amountUseCases.updateAmount(
-                                day =day,
-                                imageUrl =state.value.imageUrl,
+                                day =state.value.day,
+                                categoryImage =state.value.categoryImage,
                                 isDeposit =state.value.isDeposit,
                                 amount =state.value.amount,
-                                title =title,
-                                content =content,
+                                title =state.value.title,
+                                content =state.value.content,
                                 id=currentAmountId
                         )
                         _eventFlow.emit(UiEvent.UpdateAmount)
@@ -96,10 +93,16 @@ class AmountDetailViewModel @Inject constructor(
             }
             is AmountDetailEvent.OnSelectIcon ->{
                 _state.value = state.value.copy(
-                    imageUrl = event.imageUrl
+                    categoryImage = event.categoryImage
                 )
             }
         }
+    }
+
+    fun getIsDeposit(isDeposit:Boolean){
+        _state.value = state.value.copy(
+            isDeposit = isDeposit
+        )
     }
 
     sealed class UiEvent {

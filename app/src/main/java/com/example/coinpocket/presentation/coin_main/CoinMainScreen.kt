@@ -25,6 +25,7 @@ import com.example.coinpocket.data.local.AmountEntity
 import com.example.coinpocket.presentation.coin_main.components.CoinMainItem
 import com.example.coinpocket.presentation.destinations.AmountDetailScreenDestination
 import com.example.coinpocket.presentation.destinations.CoinAddSalaryScreenDestination
+import com.example.coinpocket.presentation.destinations.CoinStatisticsScreenDestination
 import com.example.coinpocket.util.ext.totalDayIncome
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -59,8 +60,9 @@ fun CoinMainScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-            navigator.navigate(CoinAddSalaryScreenDestination(
-                day =state.day ))
+            navigator.navigate(
+               CoinAddSalaryScreenDestination(day =state.day )
+            )
                 },
             backgroundColor = MaterialTheme.colors.primary
             ) {
@@ -112,7 +114,6 @@ fun CoinMainScreen(
     }
 
     }
-
     }
 
 

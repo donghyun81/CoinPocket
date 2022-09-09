@@ -6,14 +6,11 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.coinpocket.data.local.AmountEntity
-import com.example.coinpocket.data.local.InvalidAmountException
-import com.example.coinpocket.domain.model.iconSamples
-import com.example.coinpocket.domain.use_case.AmountUseCases
+import com.example.coinpocket.domain.use_case.amount.AmountUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
@@ -46,7 +43,7 @@ class CoinAddSalaryViewModel @Inject constructor(
                         amountUseCases.addAmount(
                             AmountEntity(
                                 day =state.value.day,
-                                imageUrl =state.value.image,
+                                categoryImage=state.value.categoryImage,
                                 isDeposit =state.value.isDeposit,
                                 amount =state.value.amount,
                                 title = state.value.title,
@@ -88,11 +85,24 @@ class CoinAddSalaryViewModel @Inject constructor(
             }
             is CoinAddSalaryEvent.OnSelectIcon ->{
                 _state.value = state.value.copy(
-                    image = event.imageUrl
+                    categoryImage = event.categoryImage
                 )
             }
+            is CoinAddSalaryEvent.IsDepositClick->{
+                _state.value = state.value.copy(
+                    isDeposit = event.isDeposit
+                )
+            }
+
         }
     }
+
+    fun getIsDeposit(isDeposit:Boolean){
+        _state.value = state.value.copy(
+            isDeposit = isDeposit
+        )
+    }
+
     sealed class UiEvent {
         data class ShowSnackbar(val message: String): UiEvent()
         object SaveNote: UiEvent()

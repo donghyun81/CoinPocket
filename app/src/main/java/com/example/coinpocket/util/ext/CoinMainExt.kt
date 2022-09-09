@@ -9,6 +9,8 @@ fun List<AmountEntity>.totalDayIncome(day:String): String {
         .sumOf { it.amount } .justMoney()
 }
 
+
+
 fun Int.justMoney(): String {
     if(this<=0) {
         return ""

@@ -33,7 +33,7 @@ fun CoinPocketSurface(
             .zIndex(elevation.value)
             .then(if (border != null) Modifier.border(border, shape) else Modifier)
             .background(
-                color = Color.White,
+                color = color,
                 shape = shape
             )
             .clip(shape)

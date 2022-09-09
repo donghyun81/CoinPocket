@@ -1,61 +1,73 @@
 package com.example.coinpocket.domain.model
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.annotation.DrawableRes
 import com.example.coinpocket.R
+import com.example.coinpocket.ui.theme.getExpenseColor
+import com.example.coinpocket.ui.theme.getIncomeColor
+import com.squareup.moshi.JsonClass
+import kotlinx.serialization.Serializable
 
-data class IconSample(
+@Serializable
+data class CategoryImage(
     val id:Long,
-    val icon:ImageVector
+    @DrawableRes val imageUrl:Int,
+    val color:Long
 )
 
-data class ImageSample(
-    val id:Long,
-    val imageUrl:Int
-)
-
-val imageSamples = listOf(
-    ImageSample(
+val incomeCategoryImages = listOf(
+    CategoryImage(
+        id=0L,
+        imageUrl = R.drawable.img,
+        color = getIncomeColor()[0]
+    ),
+    CategoryImage(
         id=1L,
-        imageUrl = R.drawable.img
+        imageUrl = R.drawable.img,
+        color = getIncomeColor()[1]
     ),
-    ImageSample(
+    CategoryImage(
         id=2L,
-        imageUrl = R.drawable.img_1
-    )
-)
-val iconSamples = listOf(
-    IconSample(
-        id=1L,
-        icon = Icons.Default.AccountCircle
+        imageUrl = R.drawable.img,
+        color = getIncomeColor()[2]
     ),
-    IconSample(
-        id=2L,
-        icon = Icons.Default.AccountBalance
-    ),
-    IconSample(
+    CategoryImage(
         id=3L,
-        icon = Icons.Default.AddCircle
+        imageUrl = R.drawable.img,
+        color = getIncomeColor()[3]
+    )
+
+)
+
+val expenseCategoryImages = listOf(
+    CategoryImage(
+        id=0L,
+        imageUrl = R.drawable.img,
+        color = getExpenseColor()[0]
     ),
-    IconSample(
+    CategoryImage(
+        id=1L,
+        imageUrl = R.drawable.img,
+        color = getExpenseColor()[1]
+    ),
+    CategoryImage(
+        id=2L,
+        imageUrl = R.drawable.img,
+        color = getExpenseColor()[2]
+    ),
+    CategoryImage(
+        id=3L,
+        imageUrl = R.drawable.img,
+        color = getExpenseColor()[3]
+    ),
+    CategoryImage(
         id=4L,
-        icon = Icons.Default.BorderRight
+        imageUrl = R.drawable.img,
+        color = getExpenseColor()[4]
     ),
-    IconSample(
+    CategoryImage(
         id=5L,
-        icon = Icons.Default.ControlCamera
-    ),
-    IconSample(
-        id=6L,
-        icon = Icons.Default.Brush
-    ),
-    IconSample(
-        id=7L,
-        icon = Icons.Default.BrunchDining
-    ),
-    IconSample(
-        id=8L,
-        icon = Icons.Default.Apartment
+        imageUrl = R.drawable.img,
+        color = getExpenseColor()[5]
     )
 )
+

@@ -29,8 +29,9 @@ fun CoinMainItem(
     ) {
 
         CategoryIconItem(
-            imageUrl = amountEntity.imageUrl,
-            modifier=modifier.size(40.dp)
+            imageUrl = amountEntity.categoryImage.imageUrl,
+            modifier=modifier.size(40.dp),
+            color = amountEntity.categoryImage.color
         )
         Text(
             text = amountEntity.title,

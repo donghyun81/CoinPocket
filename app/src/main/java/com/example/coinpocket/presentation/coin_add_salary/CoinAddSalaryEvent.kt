@@ -1,8 +1,7 @@
 package com.example.coinpocket.presentation.coin_add_salary
 
-import androidx.compose.ui.focus.FocusState
-import androidx.compose.ui.graphics.vector.ImageVector
-import com.example.coinpocket.domain.model.IconSample
+import com.example.coinpocket.domain.model.CategoryImage
+
 
 sealed class CoinAddSalaryEvent {
         object SaveSalary: CoinAddSalaryEvent()
@@ -10,5 +9,6 @@ sealed class CoinAddSalaryEvent {
         data class EnteredAmount(val amount: Int): CoinAddSalaryEvent()
         data class EnteredTitle(val title: String): CoinAddSalaryEvent()
         data class EnteredContent(val content: String): CoinAddSalaryEvent()
-        data class OnSelectIcon(val imageUrl: Int): CoinAddSalaryEvent()
+        data class OnSelectIcon(val categoryImage: CategoryImage): CoinAddSalaryEvent()
+        data class IsDepositClick(val isDeposit:Boolean):CoinAddSalaryEvent()
 }

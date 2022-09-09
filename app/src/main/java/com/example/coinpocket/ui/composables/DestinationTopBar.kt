@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavHostController
 import com.example.coinpocket.presentation.NavGraphs
 import com.example.coinpocket.presentation.destinations.*
 
@@ -71,10 +72,8 @@ fun Destination.topBarTitle(navBackStackEntry: NavBackStackEntry?): String {
     return when (this) {
         CoinMainScreenDestination,
         CoinAddSalaryScreenDestination,
-        CompanyinfoScreenDestination,
         CoinStatisticsScreenDestination,
         AmountDetailScreenDestination,
-        AmountAddCategoryScreenDestination,
         CompanyListingScreenDestination -> javaClass.simpleName.removeSuffix("Destination")
     }
 }

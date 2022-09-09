@@ -2,7 +2,7 @@ package com.example.coinpocket.domain.repository
 
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.coinpocket.data.local.AmountEntity
-import com.example.coinpocket.domain.model.IconSample
+import com.example.coinpocket.domain.model.CategoryImage
 import kotlinx.coroutines.flow.Flow
 
 interface AmountRepository {
@@ -14,9 +14,10 @@ interface AmountRepository {
         title:String,
         isDeposit:Boolean,
         day: String,
-        imageUrl: Int,
+        categoryImage:CategoryImage,
         content:String,
-        amount:Int)
+        amount:Int,
+        )
 
     suspend fun getAmount(id: Int): AmountEntity?
 

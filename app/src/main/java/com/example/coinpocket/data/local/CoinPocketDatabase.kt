@@ -3,13 +3,17 @@ package com.example.coinpocket.data.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.example.coinpocket.domain.model.CompanyListRemoteKeys
+import com.example.coinpocket.domain.model.CompanyListingEntity
 
 @Database(
-    entities = arrayOf(CompanyListingEntity::class,AmountEntity::class),
-    version = 1
+    entities = [CompanyListingEntity::class, AmountEntity::class, CompanyListRemoteKeys::class],
+    version = 1,
+    exportSchema = true
 )
-@TypeConverters(ImageVectorTypeConverter::class)
+@TypeConverters(ImageTypeConverter::class)
 abstract class CoinPocketDatabase:RoomDatabase() {
     abstract val amountDao:AmountDao
-    abstract val stockDao:StockDao
+    abstract fun stockDao():StockDao
+    abstract fun stockRemoteKeys():StockRemoteKeysDao
 }

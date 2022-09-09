@@ -1,8 +1,7 @@
 package com.example.coinpocket.presentation.amount_detail
 
-import androidx.compose.ui.graphics.vector.ImageVector
-import com.example.coinpocket.domain.model.IconSample
-import com.example.coinpocket.presentation.coin_add_salary.CoinAddSalaryEvent
+import com.example.coinpocket.domain.model.CategoryImage
+
 
 sealed class AmountDetailEvent {
     object UpdateSalary: AmountDetailEvent()
@@ -10,5 +9,5 @@ sealed class AmountDetailEvent {
     data class EnteredAmount(val amount: Int): AmountDetailEvent()
     data class EnteredTitle(val title: String): AmountDetailEvent()
     data class EnteredContent(val content: String): AmountDetailEvent()
-    data class OnSelectIcon(val imageUrl:Int): AmountDetailEvent()
+    data class OnSelectIcon(val categoryImage: CategoryImage): AmountDetailEvent()
 }

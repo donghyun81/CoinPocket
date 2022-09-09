@@ -1,27 +1,25 @@
 package com.example.coinpocket.data.local
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.coinpocket.domain.model.CompanyListingEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface StockDao {
 
-    @Insert(onConflict =OnConflictStrategy.REPLACE)
-    suspend fun insertCompanyListings(
-        companyListingEntities:List<CompanyListingEntity>
-    )
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addCompanies(companies: List<CompanyListingEntity>)
 
-    @Query("Delete From companylistingentity")
-    suspend fun clearCompanyListings()
+    @Query("SELECT * FROM companylistingentity")
+    fun getAllCompany(): PagingSource<Int, CompanyListingEntity>
 
-    @Query("""
-        Select *
-        From companylistingentity 
-        where LOWER(name) LIKE '%' || LOWER(:query) || '%' OR UPPER(:query)== symbol
+    @Query("SELECT * FROM companylistingentity WHERE id = :id")
+    fun getCompany(id: Int): Flow<CompanyListingEntity>
 
-            
-    """)
-    suspend fun searchCompanyListings(query: String): List<CompanyListingEntity>
+    @Query("DELETE FROM companylistingentity")
+    suspend fun deleteAllCompany()
 }

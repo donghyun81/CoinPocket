@@ -1,9 +1,7 @@
 package com.example.coinpocket.data.local
 
-import androidx.annotation.DrawableRes
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.room.*
-import com.example.coinpocket.domain.model.IconSample
+import com.example.coinpocket.domain.model.CategoryImage
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -14,7 +12,7 @@ interface AmountDao {
     @Query("update AmountEntity set title =:title," +
             "isDeposit=:isDeposit," +
             "day=:day," +
-            "imageUrl=:imageUrl," +
+            "categoryImage=:categoryImage," +
             "content=:content," +
             "amount=:amount where id=:id")
     suspend fun updateAmount(
@@ -22,9 +20,9 @@ interface AmountDao {
         title:String,
         isDeposit:Boolean,
         day: String,
-        imageUrl: Int,
+        categoryImage:CategoryImage,
         content:String,
-        amount:Int
+        amount:Int,
     )
 
     @Query("select * from AmountEntity where id= :id")

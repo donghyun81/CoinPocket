@@ -6,10 +6,8 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.coinpocket.data.local.AmountEntity
-import com.example.coinpocket.domain.use_case.AmountUseCases
-import com.example.coinpocket.util.ext.totalDayIncome
+import com.example.coinpocket.domain.use_case.amount.AmountUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn
@@ -28,8 +26,6 @@ class CoinMainViewModel @Inject constructor(
     private val _state = mutableStateOf(CoinMainState())
     val state: State<CoinMainState> = _state
 
-    private val _getDayTotalAmountState= mutableStateOf(GetDayTotalAmountState())
-    val getDayTotalAmountState = _getDayTotalAmountState
 
     private var getDayAccountsJob: Job? = null
     private var getAmountsJob: Job? = null

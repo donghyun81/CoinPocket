@@ -1,28 +1,28 @@
 package com.example.coinpocket.data.local
 
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
+import com.example.coinpocket.domain.model.CategoryImage
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import javax.inject.Inject
 
-@ProvidedTypeConverter
-class ImageVectorTypeConverter @Inject constructor(
- private val moshi:Moshi
-) {
+class ImageTypeConverter {
     @TypeConverter
-    fun fromString(value: String) :ImageVector? {
-        val adapter:JsonAdapter<ImageVector> = moshi.adapter(ImageVector::class.java)
-        return adapter.fromJson(value)
+    fun fromString(value: String): CategoryImage {
+        return Json.decodeFromString(value)
     }
-
     @TypeConverter
-    fun fromImageVetcor(type:ImageVector) : String {
-        val adapter:JsonAdapter<ImageVector> = moshi.adapter(ImageVector::class.java)
-        return adapter.toJson(type)
+    fun fromImage(type: CategoryImage): String {
+       return Json.encodeToString(type)
     }
 }
+
+
+
 
 
 

@@ -1,9 +1,8 @@
 package com.example.coinpocket.data.repository
 
-import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.coinpocket.data.local.AmountEntity
 import com.example.coinpocket.data.local.AmountDao
-import com.example.coinpocket.domain.model.IconSample
+import com.example.coinpocket.domain.model.CategoryImage
 import com.example.coinpocket.domain.repository.AmountRepository
 import kotlinx.coroutines.flow.Flow
 
@@ -28,17 +27,19 @@ class AmountRepositoryImpl(private val dao: AmountDao):AmountRepository {
                                       title:String,
                                       isDeposit:Boolean,
                                       day: String,
-                                      imageUrl:Int ,
+                                      categoryImage:CategoryImage ,
                                       content:String,
-                                      amount:Int) {
+                                      amount:Int,
+                                        ) {
         return dao.updateAmount(
             id,
             title,
             isDeposit,
             day,
-            imageUrl,
+            categoryImage,
             content,
-            amount)
+            amount,
+            )
     }
 
 
