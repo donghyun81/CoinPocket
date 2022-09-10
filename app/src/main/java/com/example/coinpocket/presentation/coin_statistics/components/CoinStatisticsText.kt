@@ -29,8 +29,6 @@ fun CategoryText(
     item: StatisticModel,
 ) {
     Row(
-        modifier = Modifier
-            .padding(8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         with(item) {

@@ -6,6 +6,13 @@ import java.text.NumberFormat
 
 fun List<AmountEntity>.totalDayIncome(day:String): String {
     return this.filter { it.day==day }
+        .filter { it.isDeposit }
+        .sumOf { it.amount } .justMoney()
+}
+
+fun List<AmountEntity>.totalDayExpense(day:String): String {
+    return this.filter { it.day==day }
+        .filter { !it.isDeposit }
         .sumOf { it.amount } .justMoney()
 }
 

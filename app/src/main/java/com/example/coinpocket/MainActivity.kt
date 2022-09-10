@@ -47,7 +47,6 @@ fun MainScreen() {
     val navController = engine.rememberNavController()
     val startRoute =NavGraphs.root.startRoute
 
-
     SampleScaffold(
             startRoute = startRoute,
             navController = navController,
