@@ -5,7 +5,6 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
-@Serializable
 @Entity
  data class CompanyListingEntity(
     val mrktTotAmt:Int,

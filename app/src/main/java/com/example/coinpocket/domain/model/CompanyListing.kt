@@ -2,7 +2,6 @@ package com.example.coinpocket.domain.model
 
 import com.google.gson.annotations.SerializedName
 
-
 data class CompanyListing(
     @SerializedName("header")
     val header: Header,
@@ -18,6 +17,7 @@ data class Header(
 data class Body(
     @SerializedName("pageNo")
     val pageNo:Int,
+    @SerializedName("items")
     val items: Items
 )
 
