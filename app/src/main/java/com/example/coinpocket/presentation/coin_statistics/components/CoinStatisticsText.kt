@@ -29,7 +29,8 @@ fun CategoryText(
     item: StatisticModel,
 ) {
     Row(
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.padding(16.dp)
     ) {
         with(item) {
             CategoryView(
@@ -56,7 +57,6 @@ fun CategoryView(item: CategoryImage) {
         modifier = Modifier
             .background(
                 color = Color(item.color),
-                shape = RoundedCornerShape(corner = CornerSize(999.dp))
             )
             .width(56.dp)
             .padding(4.dp),

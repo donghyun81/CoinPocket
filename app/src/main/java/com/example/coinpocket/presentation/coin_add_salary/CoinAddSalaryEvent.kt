@@ -10,5 +10,4 @@ sealed class CoinAddSalaryEvent {
         data class EnteredTitle(val title: String): CoinAddSalaryEvent()
         data class EnteredContent(val content: String): CoinAddSalaryEvent()
         data class OnSelectIcon(val categoryImage: CategoryImage): CoinAddSalaryEvent()
-        data class IsDepositClick(val isDeposit:Boolean):CoinAddSalaryEvent()
 }

@@ -51,29 +51,16 @@ fun TopBar(
             modifier = Modifier.align(Alignment.Center),
             color = Color.White
         )
-        if(NavGraphs.root.destinations.contains(destination)){
-            IconButton(
-                onClick = onCalendarSettings,
-                modifier = Modifier.align(Alignment.CenterStart)
-                ) {
-                Icon(
-                    imageVector = Icons.Outlined.Menu,
-                    tint = Color.White,
-                    contentDescription = ""
-
-                )
-            }
-        }
     }
 }
 
 @Composable
 fun Destination.topBarTitle(navBackStackEntry: NavBackStackEntry?): String {
     return when (this) {
-        CoinMainScreenDestination,
-        CoinAddSalaryScreenDestination,
-        CoinStatisticsScreenDestination,
-        AmountDetailScreenDestination,
-        CompanyListingScreenDestination -> javaClass.simpleName.removeSuffix("Destination")
+        is CoinMainScreenDestination -> "가계부"
+        is CoinAddSalaryScreenDestination -> "기록 추가"
+        is CoinStatisticsScreenDestination -> "기록 통계"
+        is AmountDetailScreenDestination -> "기록 상세"
+        is CompanyListingScreenDestination -> javaClass.simpleName.removeSuffix("Destination")
     }
 }

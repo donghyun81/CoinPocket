@@ -17,6 +17,7 @@ import com.example.coinpocket.R
 import com.example.coinpocket.domain.model.expenseCategoryImages
 import com.example.coinpocket.domain.model.incomeCategoryImages
 import com.example.coinpocket.presentation.amount_add_category.component.CategoryIconItem
+import com.example.coinpocket.presentation.amount_detail.AmountDetailEvent
 import com.example.coinpocket.presentation.coin_add_salary.components.DepositButton
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndAmountField
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndTextField
@@ -40,31 +41,30 @@ fun CoinAddSalaryScreen(
         bottomSheetState = sheetState
     )
     val state = viewModel.state.value
-    val isDepositState = remember{ mutableStateOf(true)}
     val scope = rememberCoroutineScope()
+    val isDepositState = remember { mutableStateOf(true) }
     viewModel.getIsDeposit(isDepositState.value)
     LaunchedEffect(key1 = true) {
         viewModel.eventFlow.collectLatest { event ->
-            when(event) {
+            when (event) {
                 is CoinAddSalaryViewModel.UiEvent.ShowSnackbar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = event.message
                     )
                 }
                 is CoinAddSalaryViewModel.UiEvent.SaveNote -> {
-                navigator.navigateUp()
+                    navigator.navigateUp()
                 }
             }
         }
     }
-
     BottomSheetScaffold(
         sheetContent = {
             LazyVerticalGrid(
                 cells = GridCells.Fixed(4),
                 contentPadding = PaddingValues(start = 12.dp, end = 12.dp)
             ) {
-                if(isDepositState.value) {
+                if (isDepositState.value) {
                     items(incomeCategoryImages) { image ->
                         CategoryIconItem(
                             modifier = Modifier.clickable {
@@ -77,8 +77,7 @@ fun CoinAddSalaryScreen(
                             color = image.color
                         )
                     }
-                }
-              else{
+                } else {
                     items(expenseCategoryImages) { image ->
                         CategoryIconItem(
                             modifier = Modifier.clickable {
@@ -94,91 +93,87 @@ fun CoinAddSalaryScreen(
                 }
             }
         },
-        floatingActionButton = {
-            FloatingActionButton(
-                onClick = {
-                    viewModel.onEvent(CoinAddSalaryEvent.SaveSalary)
-                },
-                backgroundColor = MaterialTheme.colors.primary
-            ) {
-                Icon(imageVector = Icons.Default.Save, contentDescription = "Save note")
-            }
-        },
         sheetPeekHeight = 0.dp,
         scaffoldState = scaffoldState,
-
-    ){
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)        ,
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ){
-
-            Text(
+    ) {
+        Scaffold(
+            floatingActionButton = {
+                FloatingActionButton(
+                    onClick = {
+                        viewModel.onEvent(CoinAddSalaryEvent.SaveSalary)
+                    },
+                    backgroundColor = MaterialTheme.colors.primary
+                ) {
+                    Icon(imageVector = Icons.Default.Save, contentDescription = "Save note")
+                }
+            }
+        ) {
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth(),
-                text =day
+                    .fillMaxSize()
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    text = day
                 )
-            Button(
-                onClick = {
-                    scope.launch {
-                        if (sheetState.isCollapsed) {
-                            sheetState.expand()
-                        } else {
-                            sheetState.collapse()
+                Button(
+                    onClick = {
+                        scope.launch {
+                            if (sheetState.isCollapsed) {
+                                sheetState.expand()
+                            } else {
+                                sheetState.collapse()
+                            }
                         }
                     }
+                ) {
+                    CategoryIconItem(
+                        imageUrl = state.categoryImage.imageUrl,
+                        color = state.categoryImage.color
+                    )
                 }
-            ) {
-                CategoryIconItem(
-                    imageUrl = state.categoryImage!!.imageUrl,
-                    color =state.categoryImage!!.color
+                DepositButton(
+                    isIncomeState = isDepositState,
+                    onDepositClick = {
+                        viewModel.defaltCategoryImage(isDeposit = isDepositState.value)
+                    },
+                )
+                TitleAndAmountField(
+                    title = R.string.amount,
+                    text = state.amount.toString(),
+                    onValueChange = {
+                        if (it == "") {
+                            viewModel.onEvent(CoinAddSalaryEvent.EnteredAmount(0))
+                        } else {
+                            viewModel.onEvent(CoinAddSalaryEvent.EnteredAmount(it.toInt()))
+                        }
+                    },
+                    keyboardType = KeyboardType.Number,
+                    singleLine = true,
+                    won = R.string.won
+                )
+                TitleAndTextField(
+                    title = R.string.title,
+                    text = state.title,
+                    onValueChange = {
+                        viewModel.onEvent(CoinAddSalaryEvent.EnteredTitle(it))
+                    },
+
+                    singleLine = true,
+                )
+                TitleAndTextField(
+                    title = R.string.content,
+                    text = state.content,
+                    onValueChange = {
+                        viewModel.onEvent(CoinAddSalaryEvent.EnteredContent(it))
+                    },
+                    singleLine = true,
                 )
             }
-
-            DepositButton(
-                isIncomeState= isDepositState,
-            )
-            Text(text = isDepositState.value.toString())
-            Text(text = state.isDeposit.toString())
-            TitleAndAmountField(
-                title= R.string.amount,
-                text = state.amount.toString(),
-                onValueChange = {
-                    if(it==""){
-                        viewModel.onEvent(CoinAddSalaryEvent.EnteredAmount(0))
-                        }
-                        else{
-                        viewModel.onEvent(CoinAddSalaryEvent.EnteredAmount(it.toInt()))
-
-                        }
-                },
-                keyboardType = KeyboardType.Number,
-                singleLine = true,
-                textStyle = MaterialTheme.typography.h5,
-                won = R.string.won
-            )
-            TitleAndTextField(
-                title=R.string.title,
-                text =state.title,
-                onValueChange = {
-                                viewModel.onEvent(CoinAddSalaryEvent.EnteredTitle(it))
-                },
-
-                singleLine = true,
-                textStyle = MaterialTheme.typography.h5
-            )
-            TitleAndTextField(
-                title=R.string.content,
-                text = state.content,
-                onValueChange = {
-                                viewModel.onEvent(CoinAddSalaryEvent.EnteredContent(it))
-                },
-                singleLine = true,
-                textStyle = MaterialTheme.typography.h5
-            )
         }
     }
-
 }
+

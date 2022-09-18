@@ -6,6 +6,7 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.EditCalendar
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
@@ -72,7 +73,6 @@ enum class BottomBarItem(
     val icon: ImageVector,
     @StringRes val label: Int
 ) {
-    CoinMain(CoinMainScreenDestination, Icons.Default.List, R.string.coin_main),
-    CompanyList(CompanyListingScreenDestination, Icons.Default.Person, R.string.company_listing),
-    Settings(CompanyListingScreenDestination, Icons.Default.Settings, R.string.settings)
+    CoinMain(CoinMainScreenDestination, Icons.Default.EditCalendar, R.string.coin_main),
+    CompanyList(CompanyListingScreenDestination, Icons.Default.List, R.string.company_listing),
 }

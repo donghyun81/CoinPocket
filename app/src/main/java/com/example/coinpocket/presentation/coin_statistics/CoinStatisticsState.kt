@@ -2,7 +2,6 @@ package com.example.coinpocket.presentation.coin_statistics
 
 import android.graphics.Color
 import com.example.coinpocket.data.local.AmountEntity
-import com.example.coinpocket.domain.model.CategoryImage
 import com.example.coinpocket.domain.model.StatisticModel
 
 data class CoinStatisticsState(

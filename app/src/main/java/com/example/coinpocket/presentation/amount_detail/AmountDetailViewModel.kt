@@ -5,7 +5,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.coinpocket.domain.model.expenseCategoryImages
+import com.example.coinpocket.domain.model.incomeCategoryImages
 import com.example.coinpocket.domain.use_case.amount.AmountUseCases
+import com.example.coinpocket.presentation.coin_add_salary.CoinAddSalaryEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -73,7 +76,15 @@ class AmountDetailViewModel @Inject constructor(
                 }
             }
             is AmountDetailEvent.OnClickIsDeposit ->{
-
+                    if(event.deposit){
+                        _state.value = state.value.copy(
+                            categoryImage = expenseCategoryImages[0]
+                        )
+                    }else{
+                        _state.value = state.value.copy(
+                            categoryImage = incomeCategoryImages[0]
+                        )
+                }
             }
 
             is AmountDetailEvent.EnteredAmount ->{
@@ -103,6 +114,18 @@ class AmountDetailViewModel @Inject constructor(
         _state.value = state.value.copy(
             isDeposit = isDeposit
         )
+    }
+
+    fun defaltCategoryImage(){
+        if(state.value.isDeposit){
+            _state.value = state.value.copy(
+                categoryImage = expenseCategoryImages[0]
+            )
+        }else{
+            _state.value = state.value.copy(
+                categoryImage = incomeCategoryImages[0]
+            )
+        }
     }
 
     sealed class UiEvent {

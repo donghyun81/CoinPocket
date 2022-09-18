@@ -6,7 +6,7 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.example.coinpocket.data.local.CoinPocketDatabase
-import com.example.coinpocket.data.remote.StockApi
+import com.example.coinpocket.data.remote.CompaniesApi
 import com.example.coinpocket.domain.model.CompanyListRemoteKeys
 import com.example.coinpocket.domain.model.CompanyListingEntity
 import javax.inject.Inject
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 @OptIn(ExperimentalPagingApi::class)
 @Singleton
 class CompanyRemoteMediator @Inject constructor(
-    private val stockApi:StockApi,
+    private val stockApi:CompaniesApi,
     private val companyDb:CoinPocketDatabase
 ): RemoteMediator<Int, CompanyListingEntity>() {
 

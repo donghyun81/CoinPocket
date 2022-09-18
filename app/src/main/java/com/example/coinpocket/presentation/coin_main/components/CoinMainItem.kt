@@ -23,14 +23,14 @@ fun CoinMainItem(
     modifier: Modifier = Modifier
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(16.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
 
         CategoryIconItem(
             imageUrl = amountEntity.categoryImage.imageUrl,
-            modifier=modifier.size(40.dp),
             color = amountEntity.categoryImage.color
         )
         Text(
@@ -68,6 +68,4 @@ fun CoinMainItem(
             }
         }
     }
-
-
 }

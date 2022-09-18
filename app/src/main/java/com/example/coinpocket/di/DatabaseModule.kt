@@ -3,14 +3,10 @@ package com.example.coinpocket.di
 import android.content.Context
 import androidx.room.Room
 import com.example.coinpocket.data.local.CoinPocketDatabase
-import com.example.coinpocket.data.local.ImageTypeConverter
-import com.example.coinpocket.data.local.StockDao
-import com.example.coinpocket.data.local.StockRemoteKeysDao
+import com.example.coinpocket.data.local.CompaniesDao
+import com.example.coinpocket.data.local.CompaniesRemoteKeysDao
 import com.example.coinpocket.data.repository.dataSource.CompanyLocalDataSource
 import com.example.coinpocket.data.repository.dataSourceImpl.CompanyLocalDataSourceImpl
-import com.example.coinpocket.data.repository.dataSourceImpl.CompanyRemoteDataSourceImpl
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,16 +23,16 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideStockDao(coinPocketDatabase: CoinPocketDatabase) : StockDao= coinPocketDatabase.stockDao()
+    fun provideStockDao(coinPocketDatabase: CoinPocketDatabase) : CompaniesDao= coinPocketDatabase.stockDao()
 
     @Provides
     @Singleton
-    fun provideStockRemoteKeysDao(coinPocketDatabase: CoinPocketDatabase) : StockRemoteKeysDao = coinPocketDatabase.stockRemoteKeys()
+    fun provideStockRemoteKeysDao(coinPocketDatabase: CoinPocketDatabase) : CompaniesRemoteKeysDao = coinPocketDatabase.stockRemoteKeys()
 
 
     @Provides
     @Singleton
-    fun provideLocalDataSource(stockDao: StockDao): CompanyLocalDataSource =
+    fun provideLocalDataSource(stockDao: CompaniesDao): CompanyLocalDataSource =
         CompanyLocalDataSourceImpl(stockDao = stockDao)
 
     @Provides

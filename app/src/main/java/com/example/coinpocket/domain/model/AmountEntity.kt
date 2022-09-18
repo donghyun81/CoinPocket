@@ -2,8 +2,6 @@ package com.example.coinpocket.data.local
 
 import androidx.room.*
 import com.example.coinpocket.domain.model.CategoryImage
-import com.squareup.moshi.JsonClass
-
 
 @Entity
 data class AmountEntity(

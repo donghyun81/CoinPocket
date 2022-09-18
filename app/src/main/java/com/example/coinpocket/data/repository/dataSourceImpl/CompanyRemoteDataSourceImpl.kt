@@ -6,12 +6,12 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.example.coinpocket.data.local.CoinPocketDatabase
 import com.example.coinpocket.data.paging.CompanyRemoteMediator
-import com.example.coinpocket.data.remote.StockApi
+import com.example.coinpocket.data.remote.CompaniesApi
 import com.example.coinpocket.data.repository.dataSource.CompanyRemoteDataSource
 import com.example.coinpocket.domain.model.CompanyListingEntity
 import kotlinx.coroutines.flow.Flow
 
-class CompanyRemoteDataSourceImpl(private val stockApi: StockApi, private val coinPocketDatabase: CoinPocketDatabase)
+class CompanyRemoteDataSourceImpl(private val stockApi: CompaniesApi, private val coinPocketDatabase: CoinPocketDatabase)
     :CompanyRemoteDataSource {
     private val stockDao = coinPocketDatabase.stockDao()
 

@@ -14,6 +14,6 @@ import com.example.coinpocket.domain.model.CompanyListingEntity
 @TypeConverters(ImageTypeConverter::class)
 abstract class CoinPocketDatabase:RoomDatabase() {
     abstract val amountDao:AmountDao
-    abstract fun stockDao():StockDao
-    abstract fun stockRemoteKeys():StockRemoteKeysDao
+    abstract fun stockDao():CompaniesDao
+    abstract fun stockRemoteKeys():CompaniesRemoteKeysDao
 }

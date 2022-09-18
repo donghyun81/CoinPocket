@@ -1,15 +1,12 @@
 package com.example.coinpocket.presentation.company_listings
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -17,7 +14,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
-import com.example.coinpocket.domain.model.CompanyListing
 import com.example.coinpocket.domain.model.CompanyListingEntity
 
 
@@ -63,7 +59,7 @@ fun CompanyItem(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = company.itmsNm!!,
+                    text = company.itmsNm,
                     fontWeight = FontWeight.Bold,
                     fontSize = 16.sp,
                     color = MaterialTheme.colors.onBackground,
@@ -81,7 +77,7 @@ fun CompanyItem(
             }
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = company.basDt!!,
+                text = company.basDt,
                 fontStyle = FontStyle.Italic,
                 color = MaterialTheme.colors.onBackground
             )

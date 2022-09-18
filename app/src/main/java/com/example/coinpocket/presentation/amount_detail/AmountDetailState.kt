@@ -1,6 +1,5 @@
 package com.example.coinpocket.presentation.amount_detail
 
-import com.example.coinpocket.R
 import com.example.coinpocket.domain.model.CategoryImage
 import com.example.coinpocket.domain.model.incomeCategoryImages
 

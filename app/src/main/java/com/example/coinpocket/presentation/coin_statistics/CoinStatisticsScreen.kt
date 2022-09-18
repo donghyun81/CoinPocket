@@ -70,7 +70,9 @@ fun CoinStatisticsScreen(
         yearMonth = state.yearMonth
     )
     Scaffold {
-        Column() {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
             SelectableCalendar(
                 modifier = Modifier.animateContentSize(),
                 dayContent = {},
@@ -82,7 +84,10 @@ fun CoinStatisticsScreen(
                 calendarState = calendarState
             )
             HorizontalDividerMax()
-            DepositButton(isIncomeState =isDepositState )
+            DepositButton(
+                isIncomeState =isDepositState,
+                onDepositClick = {  },
+            )
             HorizontalDividerMax()
             if(isDepositState.value) {
                 if(totalIncome>0){
@@ -94,7 +99,6 @@ fun CoinStatisticsScreen(
                             .fillMaxWidth()
                             .height(300.dp)
                     )
-                    HorizontalDividerMax()
                     Spacer(modifier = Modifier.height(24.dp))
                     LazyColumn(
                     ) {
@@ -105,7 +109,8 @@ fun CoinStatisticsScreen(
                     }
                 }
 
-            }else{
+            }else
+            {
                 if(totalExpese>0){
                     TotalText(amount = totalExpese)
                     HorizontalDividerMax()
@@ -115,11 +120,10 @@ fun CoinStatisticsScreen(
                             .fillMaxWidth()
                             .height(300.dp)
                     )
-                    HorizontalDividerMax()
                     Spacer(modifier = Modifier.height(24.dp))
                     LazyColumn(
                         modifier = Modifier
-                            .padding(16.dp, 0.dp)
+                            .padding(16.dp)
                     ) {
                         items(state.expenseStaticList) { item ->
                             CategoryText(item = item)
@@ -127,7 +131,6 @@ fun CoinStatisticsScreen(
                         }
                     }
                 }
-
             }
         }
     }

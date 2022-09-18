@@ -16,14 +16,12 @@ fun List<AmountEntity>.totalDayExpense(day:String): String {
         .sumOf { it.amount } .justMoney()
 }
 
-
-
 fun Int.justMoney(): String {
-    if(this<=0) {
-        return ""
+    return if(this<=0) {
+        ""
     }else{
         val formatter = DecimalFormat("#,###") as NumberFormat
-        return formatter.format(this)
+        formatter.format(this)
     }
 }
 

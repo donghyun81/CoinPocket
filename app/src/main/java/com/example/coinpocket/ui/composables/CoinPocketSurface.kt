@@ -21,7 +21,7 @@ import androidx.compose.ui.zIndex
 fun CoinPocketSurface(
     modifier: Modifier = Modifier,
     shape: Shape = RectangleShape,
-    color: Color = Color.White,
+    color: Long,
     contentColor: Color = Color.LightGray,
     border: BorderStroke? = null,
     elevation: Dp = 0.dp,
@@ -33,7 +33,7 @@ fun CoinPocketSurface(
             .zIndex(elevation.value)
             .then(if (border != null) Modifier.border(border, shape) else Modifier)
             .background(
-                color = color,
+                color = Color(color),
                 shape = shape
             )
             .clip(shape)

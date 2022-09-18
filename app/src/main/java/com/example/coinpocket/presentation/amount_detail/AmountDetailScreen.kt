@@ -21,6 +21,7 @@ import com.example.coinpocket.R
 import com.example.coinpocket.domain.model.expenseCategoryImages
 import com.example.coinpocket.domain.model.incomeCategoryImages
 import com.example.coinpocket.presentation.amount_add_category.component.CategoryIconItem
+import com.example.coinpocket.presentation.coin_add_salary.CoinAddSalaryEvent
 import com.example.coinpocket.presentation.coin_add_salary.components.DepositButton
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndAmountField
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndTextField
@@ -62,123 +63,129 @@ fun AmountDetailScreen(
         }
     }
 
-    BottomSheetScaffold(
+        BottomSheetScaffold(
         sheetContent = {
             LazyVerticalGrid(
                 cells = GridCells.Fixed(4),
                 contentPadding = PaddingValues(start = 12.dp, end = 12.dp)
             ) {
-                    if(isDepositState.value) {
-                        items(incomeCategoryImages) { image ->
-                            CategoryIconItem(
-                                modifier = Modifier.clickable {
-                                    viewModel.onEvent(AmountDetailEvent.OnSelectIcon(image))
-                                    scope.launch {
-                                        sheetState.collapse()
-                                    }
-                                },
-                                imageUrl = image.imageUrl,
-                                color = image.color
-                            )
-                        }
-                    }
-                    else{
-                        items(expenseCategoryImages) { image ->
-                            CategoryIconItem(
-                                modifier = Modifier.clickable {
-                                    viewModel.onEvent(AmountDetailEvent.OnSelectIcon(image))
-                                    scope.launch {
-                                        sheetState.collapse()
-                                    }
-                                },
-                                imageUrl = image.imageUrl,
-                                color = image.color
-                            )
-                        }
-                    }
-            }
-        },
-        floatingActionButton = {
-            FloatingActionButton(
-                onClick = {
-                    viewModel.onEvent(AmountDetailEvent.UpdateSalary)
-                },
-                backgroundColor = MaterialTheme.colors.primary
-            ) {
-                Icon(imageVector = Icons.Default.Save, contentDescription = "Save note")
-            }
-        },
-        scaffoldState = scaffoldState,
-
-        ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)        ,
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ){
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                text =state.day
-            )
-            Button(
-                onClick = {
-                    scope.launch {
-                        if (sheetState.isCollapsed) {
-                            sheetState.expand()
-                        } else {
-                            sheetState.collapse()
-                        }
+                if(isDepositState.value) {
+                    items(incomeCategoryImages) { image ->
+                        CategoryIconItem(
+                            modifier = Modifier.clickable {
+                                viewModel.onEvent(AmountDetailEvent.OnSelectIcon(image))
+                                scope.launch {
+                                    sheetState.collapse()
+                                }
+                            },
+                            imageUrl = image.imageUrl,
+                            color = image.color
+                        )
                     }
                 }
-            ) {
-                CategoryIconItem(
-                    imageUrl = state.categoryImage.imageUrl,
-                    color= state.categoryImage.color
+                else{
+                    items(expenseCategoryImages) { image ->
+                        CategoryIconItem(
+                            modifier = Modifier.clickable {
+                                viewModel.onEvent(AmountDetailEvent.OnSelectIcon(image))
+                                scope.launch {
+                                    sheetState.collapse()
+                                }
+                            },
+                            imageUrl = image.imageUrl,
+                            color = image.color
+                        )
+                    }
+                }
+            }
+        },
+            sheetPeekHeight = 0.dp,
+            scaffoldState = scaffoldState,
+        ) {
+            Scaffold(
+                floatingActionButton = {
+                    FloatingActionButton(
+                        onClick = {
+                            viewModel.onEvent(AmountDetailEvent.UpdateSalary)
+                        },
+                        backgroundColor = MaterialTheme.colors.primary
+                    ) {
+                        Icon(imageVector = Icons.Default.Save, contentDescription = "Save note")
+                    }
+                }
+            ){
+                Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    text =state.day
+                )
+                Button(
+                    onClick = {
+                        scope.launch {
+                            if (sheetState.isCollapsed) {
+                                sheetState.expand()
+                            } else {
+                                sheetState.collapse()
+                            }
+                        }
+                    }
+                ) {
+                    CategoryIconItem(
+                        imageUrl = state.categoryImage.imageUrl,
+                        color= state.categoryImage.color
+                    )
+                }
+                DepositButton(
+                    isIncomeState= isDepositState,
+                    onDepositClick = {
+                        viewModel.defaltCategoryImage()
+                    },
+
+                )
+                    Text(text = isDepositState.value.toString())
+                TitleAndAmountField(
+                    title= R.string.amount,
+                    text = state.amount.toString(),
+                    onValueChange = {
+                        if(it==""){
+                            viewModel.onEvent(AmountDetailEvent.EnteredAmount(0))
+                        }
+                        else{
+                            viewModel.onEvent(AmountDetailEvent.EnteredAmount(it.toInt()))
+
+                        }
+                    },
+                    keyboardType = KeyboardType.Number,
+                    singleLine = true,
+                    won = R.string.won
+                )
+                TitleAndTextField(
+                    title=R.string.title,
+                    text =state.title,
+                    onValueChange = {
+                        viewModel.onEvent(AmountDetailEvent.EnteredTitle(it))
+                    },
+
+                    singleLine = true,
+                )
+                TitleAndTextField(
+                    title=R.string.content,
+                    text = state.content,
+                    onValueChange = {
+                        viewModel.onEvent(AmountDetailEvent.EnteredContent(it))
+                    },
+                    singleLine = true,
                 )
             }
+            }
+
+    }
 
 
-            DepositButton(
-                isIncomeState= isDepositState,
-            )
-            TitleAndAmountField(
-                title= R.string.amount,
-                text = state.amount.toString(),
-                onValueChange = {
-                    if(it==""){
-                        viewModel.onEvent(AmountDetailEvent.EnteredAmount(0))
-                    }
-                    else{
-                        viewModel.onEvent(AmountDetailEvent.EnteredAmount(it.toInt()))
-
-                    }
-                },
-                keyboardType = KeyboardType.Number,
-                singleLine = true,
-                textStyle = MaterialTheme.typography.h5,
-                won = R.string.won
-            )
-            TitleAndTextField(
-                title=R.string.title,
-                text =state.title,
-                onValueChange = {
-                    viewModel.onEvent(AmountDetailEvent.EnteredTitle(it))
-                },
-
-                singleLine = true,
-                textStyle = MaterialTheme.typography.h5
-            )
-            TitleAndTextField(
-                title=R.string.content,
-                text = state.content,
-                onValueChange = {
-                    viewModel.onEvent(AmountDetailEvent.EnteredContent(it))
-                },
-                singleLine = true,
-                textStyle = MaterialTheme.typography.h5
-            )
-        }
-        }
     }

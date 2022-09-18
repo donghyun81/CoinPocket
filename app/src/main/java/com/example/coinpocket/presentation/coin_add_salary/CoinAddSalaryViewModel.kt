@@ -6,6 +6,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.coinpocket.data.local.AmountEntity
+import com.example.coinpocket.domain.model.expenseCategoryImages
+import com.example.coinpocket.domain.model.incomeCategoryImages
 import com.example.coinpocket.domain.use_case.amount.AmountUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -54,7 +56,15 @@ class CoinAddSalaryViewModel @Inject constructor(
                 }
             }
             is CoinAddSalaryEvent.OnClickIsDeposit ->{
-
+                if(!state.value.isDeposit){
+                    _state.value = state.value.copy(
+                        categoryImage = expenseCategoryImages[0]
+                    )
+                }else{
+                    _state.value = state.value.copy(
+                        categoryImage = incomeCategoryImages[0]
+                    )
+                }
             }
 
             is CoinAddSalaryEvent.EnteredAmount ->{
@@ -88,11 +98,6 @@ class CoinAddSalaryViewModel @Inject constructor(
                     categoryImage = event.categoryImage
                 )
             }
-            is CoinAddSalaryEvent.IsDepositClick->{
-                _state.value = state.value.copy(
-                    isDeposit = event.isDeposit
-                )
-            }
 
         }
     }
@@ -101,6 +106,18 @@ class CoinAddSalaryViewModel @Inject constructor(
         _state.value = state.value.copy(
             isDeposit = isDeposit
         )
+    }
+
+    fun defaltCategoryImage(isDeposit:Boolean){
+        if(!isDeposit){
+            _state.value = state.value.copy(
+                categoryImage = expenseCategoryImages[0]
+            )
+        }else{
+            _state.value = state.value.copy(
+                categoryImage = incomeCategoryImages[0]
+            )
+        }
     }
 
     sealed class UiEvent {
