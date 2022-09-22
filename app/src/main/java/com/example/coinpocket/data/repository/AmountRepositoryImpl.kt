@@ -29,7 +29,7 @@ class AmountRepositoryImpl(private val dao: AmountDao):AmountRepository {
                                       day: String,
                                       categoryImage:CategoryImage ,
                                       content:String,
-                                      amount:Int,
+                                      amount:Long,
                                         ) {
         return dao.updateAmount(
             id,

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -21,6 +22,7 @@ import com.example.coinpocket.presentation.amount_detail.AmountDetailEvent
 import com.example.coinpocket.presentation.coin_add_salary.components.DepositButton
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndAmountField
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndTextField
+import com.example.coinpocket.ui.composables.HorizontalDividerMax
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.flow.collectLatest
@@ -148,13 +150,14 @@ fun CoinAddSalaryScreen(
                         if (it == "") {
                             viewModel.onEvent(CoinAddSalaryEvent.EnteredAmount(0))
                         } else {
-                            viewModel.onEvent(CoinAddSalaryEvent.EnteredAmount(it.toInt()))
+                            viewModel.onEvent(CoinAddSalaryEvent.EnteredAmount(it.toLong()))
                         }
                     },
                     keyboardType = KeyboardType.Number,
                     singleLine = true,
                     won = R.string.won
                 )
+                HorizontalDividerMax()
                 TitleAndTextField(
                     title = R.string.title,
                     text = state.title,
@@ -164,6 +167,7 @@ fun CoinAddSalaryScreen(
 
                     singleLine = true,
                 )
+                HorizontalDividerMax()
                 TitleAndTextField(
                     title = R.string.content,
                     text = state.content,
@@ -172,6 +176,8 @@ fun CoinAddSalaryScreen(
                     },
                     singleLine = true,
                 )
+                HorizontalDividerMax()
+
             }
         }
     }

@@ -17,7 +17,7 @@ data class CategoryImage(
 val incomeCategoryImages = listOf(
     CategoryImage(
         id=0L,
-        imageUrl = R.drawable.salary,
+        imageUrl = R.drawable.more,
         color = getIncomeColor()[0]
     ),
     CategoryImage(
@@ -32,7 +32,7 @@ val incomeCategoryImages = listOf(
     ),
     CategoryImage(
         id=3L,
-        imageUrl = R.drawable.more,
+        imageUrl = R.drawable.salary,
         color = getIncomeColor()[3]
     )
 
@@ -41,7 +41,7 @@ val incomeCategoryImages = listOf(
 val expenseCategoryImages = listOf(
     CategoryImage(
         id=0L,
-        imageUrl = R.drawable.shopping,
+        imageUrl = R.drawable.more,
         color = getExpenseColor()[0]
     ),
     CategoryImage(
@@ -68,6 +68,16 @@ val expenseCategoryImages = listOf(
         id=5L,
         imageUrl = R.drawable.school_bus,
         color = getExpenseColor()[5]
-    )
+    ),
+    CategoryImage(
+        id=6L,
+        imageUrl = R.drawable.shopping,
+        color = getExpenseColor()[6]
+    ),
+    CategoryImage(
+        id=7L,
+        imageUrl = R.drawable.musical_note,
+        color = getExpenseColor()[7]
+)
 )
 

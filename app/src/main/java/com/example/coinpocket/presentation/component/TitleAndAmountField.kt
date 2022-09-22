@@ -33,9 +33,9 @@ fun TitleAndAmountField(
             modifier = Modifier
                 .align(Alignment.CenterVertically)
         )
-        Spacer(Modifier.weight(1f))
+        Spacer(Modifier.weight(2f))
         BasicTextField(
-            value = text+ stringResource(id = won),
+            value = text,
             onValueChange = onValueChange,
             keyboardOptions = KeyboardOptions(
                 keyboardType = keyboardType
@@ -44,6 +44,12 @@ fun TitleAndAmountField(
             textStyle = TextStyle(
                 fontSize = 25.sp
             ),
+            modifier = Modifier
+                .align(Alignment.CenterVertically)
+        )
+        Text(
+            text = stringResource(id = won),
+            fontSize = 25.sp,
             modifier = Modifier
                 .align(Alignment.CenterVertically)
         )

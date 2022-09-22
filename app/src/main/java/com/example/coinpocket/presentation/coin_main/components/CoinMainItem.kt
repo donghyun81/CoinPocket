@@ -33,20 +33,24 @@ fun CoinMainItem(
             imageUrl = amountEntity.categoryImage.imageUrl,
             color = amountEntity.categoryImage.color
         )
-        Text(
-            text = amountEntity.title,
-            style = MaterialTheme.typography.h6,
-            color = MaterialTheme.colors.onSurface,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis
-        )
-        Text(
-            text = amountEntity.content,
-            style = MaterialTheme.typography.body1,
-            color = MaterialTheme.colors.onSurface,
-            maxLines = 10,
-            overflow = TextOverflow.Ellipsis
-        )
+        Column(
+            modifier = modifier.padding(10.dp)
+        ) {
+            Text(
+                text = amountEntity.title,
+                style = MaterialTheme.typography.h6,
+                color = MaterialTheme.colors.onSurface,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+            Text(
+                text = amountEntity.content,
+                style = MaterialTheme.typography.body1,
+                color = MaterialTheme.colors.onSurface,
+                maxLines = 10,
+                overflow = TextOverflow.Ellipsis
+            )
+        }
         Spacer(Modifier.weight(1f))
         Text(
             text = amountEntity.amount.toString()+
@@ -56,7 +60,7 @@ fun CoinMainItem(
             maxLines = 10,
             overflow = TextOverflow.Ellipsis
         )
-        CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.high) {
+        CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
             IconButton(
                 onClick = onDeleteClick,
             ) {

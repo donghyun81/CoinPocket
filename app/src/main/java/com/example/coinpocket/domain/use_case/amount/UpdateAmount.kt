@@ -14,7 +14,7 @@ class UpdateAmount (
                                 day: String,
                                 categoryImage:CategoryImage,
                                 content:String,
-                                amount:Int,
+                                amount:Long,
                                 ){
         repository.updateAmount(
             id,

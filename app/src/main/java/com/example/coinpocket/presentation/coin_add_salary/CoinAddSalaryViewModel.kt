@@ -9,6 +9,7 @@ import com.example.coinpocket.data.local.AmountEntity
 import com.example.coinpocket.domain.model.expenseCategoryImages
 import com.example.coinpocket.domain.model.incomeCategoryImages
 import com.example.coinpocket.domain.use_case.amount.AmountUseCases
+import com.example.coinpocket.presentation.coin_main.CoinMainEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -69,7 +70,7 @@ class CoinAddSalaryViewModel @Inject constructor(
 
             is CoinAddSalaryEvent.EnteredAmount ->{
                 when(event.amount) {
-                   is Int -> {
+                   is Long -> {
                         _state.value = state.value.copy(
                             amount = event.amount
                         )

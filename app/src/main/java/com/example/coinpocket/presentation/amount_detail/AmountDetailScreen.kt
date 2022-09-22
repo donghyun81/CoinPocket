@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -25,6 +26,7 @@ import com.example.coinpocket.presentation.coin_add_salary.CoinAddSalaryEvent
 import com.example.coinpocket.presentation.coin_add_salary.components.DepositButton
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndAmountField
 import com.example.coinpocket.presentation.coin_add_salary.components.TitleAndTextField
+import com.example.coinpocket.ui.composables.HorizontalDividerMax
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.flow.collectLatest
@@ -56,7 +58,7 @@ fun AmountDetailScreen(
                         message = event.message
                     )
                 }
-                is AmountDetailViewModel.UiEvent.UpdateAmount -> {
+                is AmountDetailViewModel.UiEvent.NavigateUp -> {
                     navigator.navigateUp()
                 }
             }
@@ -120,11 +122,25 @@ fun AmountDetailScreen(
                     .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ){
-                Text(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    text =state.day
-                )
+
+                    Row(Modifier.fillMaxWidth()) {
+                        Text(
+                            text =state.day
+                        )
+                        Spacer(Modifier.weight(1f))
+                        IconButton(
+                                onClick = {
+                                          viewModel.onEvent(AmountDetailEvent.OnDeleteCoinClick(state.amountEntity!!))
+                                },
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Delete,
+                                    contentDescription = "Delete note",
+                                    tint = MaterialTheme.colors.onSurface
+                                )
+                        }
+                    }
+
                 Button(
                     onClick = {
                         scope.launch {
@@ -148,7 +164,6 @@ fun AmountDetailScreen(
                     },
 
                 )
-                    Text(text = isDepositState.value.toString())
                 TitleAndAmountField(
                     title= R.string.amount,
                     text = state.amount.toString(),
@@ -157,7 +172,7 @@ fun AmountDetailScreen(
                             viewModel.onEvent(AmountDetailEvent.EnteredAmount(0))
                         }
                         else{
-                            viewModel.onEvent(AmountDetailEvent.EnteredAmount(it.toInt()))
+                            viewModel.onEvent(AmountDetailEvent.EnteredAmount(it.toLong()))
 
                         }
                     },
@@ -165,7 +180,8 @@ fun AmountDetailScreen(
                     singleLine = true,
                     won = R.string.won
                 )
-                TitleAndTextField(
+                    HorizontalDividerMax()
+                    TitleAndTextField(
                     title=R.string.title,
                     text =state.title,
                     onValueChange = {
@@ -174,7 +190,8 @@ fun AmountDetailScreen(
 
                     singleLine = true,
                 )
-                TitleAndTextField(
+                    HorizontalDividerMax()
+                    TitleAndTextField(
                     title=R.string.content,
                     text = state.content,
                     onValueChange = {

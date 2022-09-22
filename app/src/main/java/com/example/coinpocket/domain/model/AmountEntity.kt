@@ -11,5 +11,5 @@ data class AmountEntity(
     val day: String,
     val categoryImage:CategoryImage,
     val content:String,
-    val amount:Int,
+    val amount:Long,
 )

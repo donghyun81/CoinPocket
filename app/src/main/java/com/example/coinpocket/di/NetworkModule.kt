@@ -35,34 +35,34 @@ object NetworkModule {
             .build()
     }
 
-//    @Provides
-//    @Singleton
-//    fun provideCompanyRetrofit(
-//        okHttpClient: OkHttpClient,
-//    ): Retrofit {
-//
-//        val gson: Gson = GsonBuilder()
-//            .setLenient()
-//            .create()
-//
-//        return Retrofit.Builder()
-//            .baseUrl(CompaniesApi.BASE_URL)
-//            .client(okHttpClient)
-//            .addConverterFactory(GsonConverterFactory.create(gson))
-//            .build()
-//    }
-
-    //kotlinx.serialization 예시
     @Provides
     @Singleton
-    fun provideCompanyRetrofit(okHttpClient: OkHttpClient): Retrofit {
-        val contentType = "application/json".toMediaType()
+    fun provideCompanyRetrofit(
+        okHttpClient: OkHttpClient,
+    ): Retrofit {
+
+        val gson: Gson = GsonBuilder()
+            .setLenient()
+            .create()
+
         return Retrofit.Builder()
             .baseUrl(CompaniesApi.BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(Json.asConverterFactory(contentType))
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
+
+//    //kotlinx.serialization 예시
+//    @Provides
+//    @Singleton
+//    fun provideCompanyRetrofit(okHttpClient: OkHttpClient): Retrofit {
+//        val contentType = "application/json".toMediaType()
+//        return Retrofit.Builder()
+//            .baseUrl(CompaniesApi.BASE_URL)
+//            .client(okHttpClient)
+//            .addConverterFactory(Json.asConverterFactory(contentType))
+//            .build()
+//    }
 
     @Provides
     @Singleton

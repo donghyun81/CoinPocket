@@ -20,8 +20,6 @@ import javax.inject.Inject
 class CoinMainViewModel @Inject constructor(
     private val useCases: AmountUseCases,
 ):ViewModel() {
-    private var recentlyDeletedCoin: AmountEntity? = null
-
 
     private val _state = mutableStateOf(CoinMainState())
     val state: State<CoinMainState> = _state
@@ -43,13 +41,6 @@ class CoinMainViewModel @Inject constructor(
             is CoinMainEvent.OnDeleteCoinClick -> {
                 viewModelScope.launch {
                     useCases.deleteAmount(event.amountEntity)
-                    recentlyDeletedCoin = event.amountEntity
-                }
-            }
-            is CoinMainEvent.OnUndoDeleteClick -> {
-                viewModelScope.launch {
-                    useCases.addAmount(recentlyDeletedCoin ?: return@launch)
-                    recentlyDeletedCoin = null
                 }
             }
             is CoinMainEvent.OnSelectDay -> {

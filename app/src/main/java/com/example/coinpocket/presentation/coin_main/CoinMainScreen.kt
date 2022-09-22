@@ -118,28 +118,3 @@ fun CoinMainScreen(
     }
     }
     }
-
-@Composable
-private fun SelectionControls(
-    selectionState: DynamicSelectionState,
-) {
-    Text(
-        text = "Calendar Selection Mode",
-        style = MaterialTheme.typography.h5,
-    )
-    SelectionMode.values().forEach { selectionMode ->
-        Row(modifier = Modifier.fillMaxWidth()) {
-            RadioButton(
-                selected = selectionState.selectionMode == selectionMode,
-                onClick = { selectionState.selectionMode = selectionMode }
-            )
-            Text(text = selectionMode.name)
-            Spacer(modifier = Modifier.height(4.dp))
-        }
-    }
-
-    Text(
-        text = "Selection: ${selectionState.selection.joinToString { it.toString() }}",
-        style = MaterialTheme.typography.h6,
-    )
-}

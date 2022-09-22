@@ -24,7 +24,6 @@ import com.example.coinpocket.presentation.destinations.*
 fun TopBar(
     destination:Destination,
     onStatistics:()->Unit,
-    onCalendarSettings:()->Unit,
     navBackStackEntry: NavBackStackEntry?
 ){
 
@@ -61,6 +60,6 @@ fun Destination.topBarTitle(navBackStackEntry: NavBackStackEntry?): String {
         is CoinAddSalaryScreenDestination -> "기록 추가"
         is CoinStatisticsScreenDestination -> "기록 통계"
         is AmountDetailScreenDestination -> "기록 상세"
-        is CompanyListingScreenDestination -> javaClass.simpleName.removeSuffix("Destination")
+        is CompanyListingScreenDestination -> "회사목록"
     }
 }

@@ -44,6 +44,7 @@ class AmountDetailViewModel @Inject constructor(
                             amount =amountEntity.amount,
                             title=amountEntity.title,
                             content=amountEntity.content,
+                            amountEntity=amountEntity
                       )
                 }
             }
@@ -64,8 +65,7 @@ class AmountDetailViewModel @Inject constructor(
                                 content =state.value.content,
                                 id=currentAmountId
                         )
-                        _eventFlow.emit(UiEvent.UpdateAmount)
-
+                        _eventFlow.emit(UiEvent.NavigateUp)
                     }catch (e:Exception){
                         _eventFlow.emit(
                            UiEvent.ShowSnackbar(
@@ -107,6 +107,12 @@ class AmountDetailViewModel @Inject constructor(
                     categoryImage = event.categoryImage
                 )
             }
+            is AmountDetailEvent.OnDeleteCoinClick -> {
+                viewModelScope.launch {
+                    amountUseCases.deleteAmount(event.amountEntity)
+                    _eventFlow.emit(UiEvent.NavigateUp)
+                }
+            }
         }
     }
 
@@ -130,6 +136,6 @@ class AmountDetailViewModel @Inject constructor(
 
     sealed class UiEvent {
         data class ShowSnackbar(val message: String): UiEvent()
-        object UpdateAmount: UiEvent()
+        object NavigateUp: UiEvent()
     }
 }

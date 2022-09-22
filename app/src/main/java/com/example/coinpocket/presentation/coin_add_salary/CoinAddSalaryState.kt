@@ -9,7 +9,7 @@ data class CoinAddSalaryState (
     val day:String="",
     val categoryImage: CategoryImage = incomeCategoryImages[0],
     val isDeposit:Boolean = true,
-    val amount:Int=0,
+    val amount:Long=0L,
     val title:String = "",
     val content:String="",
         )

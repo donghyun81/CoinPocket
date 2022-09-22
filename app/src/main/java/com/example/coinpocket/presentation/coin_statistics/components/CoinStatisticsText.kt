@@ -39,7 +39,7 @@ fun CategoryText(
         }
         Spacer(modifier = Modifier.width(8.dp))
         Text(
-            text = item.amount.toInt().justMoney(),
+            text = item.amount.justMoney(),
             fontSize = 14.sp,
             modifier = Modifier
                 .weight(1f)
@@ -85,7 +85,7 @@ fun TotalText(amount: Long) {
             )
             Spacer(modifier = Modifier.weight(1f))
             Text(
-                text = amount.toInt().justMoney(),
+                text = amount.justMoney(),
                 fontSize = 14.sp
             )
         }

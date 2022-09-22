@@ -42,6 +42,7 @@ fun TitleAndTextField(
             onValueChange = onValueChange,
             keyboardOptions = KeyboardOptions(
                 keyboardType = keyboardType
+
             ),
             singleLine = singleLine,
             textStyle = TextStyle(

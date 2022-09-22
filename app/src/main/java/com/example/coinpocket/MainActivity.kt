@@ -57,7 +57,6 @@ fun MainScreen() {
                TopBar(
                destination = dest,
                onStatistics = { navController.navigate(CoinStatisticsScreenDestination) },
-               onCalendarSettings = {  navController.navigate(CoinStatisticsScreenDestination) },
                navBackStackEntry =backStackEntry
            )
            })

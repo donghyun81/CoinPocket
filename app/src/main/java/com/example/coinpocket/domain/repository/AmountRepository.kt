@@ -16,7 +16,7 @@ interface AmountRepository {
         day: String,
         categoryImage:CategoryImage,
         content:String,
-        amount:Int,
+        amount:Long,
         )
 
     suspend fun getAmount(id: Int): AmountEntity?

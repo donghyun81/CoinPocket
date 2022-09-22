@@ -16,7 +16,7 @@ fun List<AmountEntity>.totalDayExpense(day:String): String {
         .sumOf { it.amount } .justMoney()
 }
 
-fun Int.justMoney(): String {
+fun Long.justMoney(): String {
     return if(this<=0) {
         ""
     }else{

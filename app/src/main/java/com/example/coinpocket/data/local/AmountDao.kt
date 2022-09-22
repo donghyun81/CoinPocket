@@ -22,7 +22,7 @@ interface AmountDao {
         day: String,
         categoryImage:CategoryImage,
         content:String,
-        amount:Int,
+        amount:Long,
     )
 
     @Query("select * from AmountEntity where id= :id")

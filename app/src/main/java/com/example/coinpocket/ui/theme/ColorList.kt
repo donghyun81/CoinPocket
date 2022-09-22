@@ -1,9 +1,10 @@
 package com.example.coinpocket.ui.theme
 
 fun getExpenseColor() = listOf(
-    0xFF9FE7C8,  0xFF2FA488,
-    0xFF625EBA,  0xFFD092E2,
-    0xFFF1B4EF,  0xFFCB588F
+    0xFF9BD182, 0xFF9FE7C8,
+    0xFF2FA488, 0xFF625EBA,
+    0xFFD092E2, 0xFFF1B4EF,
+    0xFFCB588F, 0xFF2FA445
 )
 
 fun getIncomeColor() = listOf(
