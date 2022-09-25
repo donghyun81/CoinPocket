@@ -80,7 +80,11 @@
                                               <map>
                                                 <entry key="color" value="000000" />
                                                 <entry key="imagePath" value="$USER_HOME$/Downloads/pocket-money.png" />
+<<<<<<< HEAD
                                                 <entry key="scalingPercent" value="55" />
+=======
+                                                <entry key="scalingPercent" value="69" />
+>>>>>>> 24cf60e (commit)
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -113,7 +117,11 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
+<<<<<<< HEAD
                                       <entry key="backgroundColor" value="3ddcac" />
+=======
+                                      <entry key="backgroundColor" value="3ddcd7" />
+>>>>>>> 24cf60e (commit)
                                     </map>
                                   </option>
                                 </PersistentState>

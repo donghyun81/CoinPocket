@@ -24,5 +24,6 @@ data class CompanyListing(
         @SerializedName("items")
         val item: List<CompanyListingEntity>
     )
+
 }
 

@@ -1,6 +1,7 @@
 package com.example.coinpocket.di
 
 import com.example.coinpocket.data.local.CoinPocketDatabase
+import com.example.coinpocket.data.remote.ApiService
 import com.example.coinpocket.data.remote.CompaniesApi
 import com.example.coinpocket.data.repository.dataSource.CompanyRemoteDataSource
 import com.example.coinpocket.data.repository.dataSourceImpl.CompanyRemoteDataSourceImpl
@@ -52,6 +53,23 @@ object NetworkModule {
             .build()
     }
 
+//    @Provides
+//    @Singleton
+//    fun provideYoutubeRetrofit(
+//        okHttpClient: OkHttpClient,
+//    ): Retrofit {
+//
+//        val gson: Gson = GsonBuilder()
+//            .setLenient()
+//            .create()
+//
+//        return Retrofit.Builder()
+//            .baseUrl("https://www.googleapis.com/youtube/v3/")
+//            .client(okHttpClient)
+//            .addConverterFactory(GsonConverterFactory.create(gson))
+//            .build()
+//    }
+
 //    //kotlinx.serialization 예시
 //    @Provides
 //    @Singleton
@@ -69,6 +87,12 @@ object NetworkModule {
     fun provideStockApi(retrofit: Retrofit): CompaniesApi {
         return retrofit.create(CompaniesApi::class.java)
     }
+
+//    @Provides
+//    @Singleton
+//    fun provideYoutubeApi(retrofit: Retrofit): ApiService {
+//        return retrofit.create(ApiService::class.java)
+//    }
 
     @Provides
     @Singleton
