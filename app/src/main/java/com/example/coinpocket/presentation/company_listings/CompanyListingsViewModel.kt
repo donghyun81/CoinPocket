@@ -18,7 +18,6 @@ import javax.security.auth.callback.Callback
 @HiltViewModel
 class CompanyListingsViewModel @Inject constructor(
     private val stockUsecases: StockUsecases,
-//    private val youtubeApi:ApiService
     ):ViewModel(){
     val getAllCompanies = stockUsecases.getCompaniesUseCase()
 

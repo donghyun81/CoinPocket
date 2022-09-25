@@ -27,7 +27,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 
 @Composable
 @Destination(
-    route = Routes.MAIN_Companies,
+    route = Routes.Companies,
     start = true,
     navGraph = Routes.Companies_NAV_GRAPH,
 )
@@ -38,59 +38,8 @@ fun CompanyListingScreen(
 
     Scaffold(
         content = {
-            Column(modifier = Modifier.padding(18.dp)) {
-            }
-            YouTubeScreen("FHZ6bI3zb4M")
+            CompanyListContent(allCompanies = allCompanies)
 
         }
-    )
-
-}
-
-@Composable
-fun YouTubeScreen(videoId:String) {
-    val ctx = LocalContext.current
-    AndroidView(
-        factory = {
-            val fm = (ctx as AppCompatActivity).supportFragmentManager
-            val view = FragmentContainerView(it).apply {
-                id = R.id.fragment_container_view_tag
-            }
-            val fragment1 = YouTubePlayerSupportFragmentXKt().apply {
-                initialize(
-                    BuildConfig.API_KEYY,
-                    object : YouTubePlayer.OnInitializedListener {
-                        override fun onInitializationFailure(
-                            provider: YouTubePlayer.Provider,
-                            result: YouTubeInitializationResult
-                        ) {
-                            Toast.makeText(
-                                context,
-                                "Error initializing video",
-                                Toast.LENGTH_SHORT,
-                            ).show()
-                        }
-
-                        override fun onInitializationSuccess(
-                            provider: YouTubePlayer.Provider,
-                            player: YouTubePlayer,
-                            wasRestored: Boolean
-                        ) {
-                            // TODO closing this screen when the player is in fullscreen
-                            //  is making the app keep in landscape. Disabling for now.
-                            player.setShowFullscreenButton(false)
-                            if (!wasRestored) {
-                                player.cueVideo(videoId)
-                            }
-                        }
-                    },
-                )
-            }
-            fm.commit {
-                setReorderingAllowed(true)
-                add(R.id.fragment_container_view_tag, fragment1)
-            }
-           view
-        },
     )
 }

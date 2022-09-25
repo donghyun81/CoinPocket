@@ -61,5 +61,6 @@ fun Destination.topBarTitle(navBackStackEntry: NavBackStackEntry?): String {
         is CoinStatisticsScreenDestination -> "기록 통계"
         is AmountDetailScreenDestination -> "기록 상세"
         is CompanyListingScreenDestination -> "회사목록"
+        is YoutubeListingScreenDestination ->"유튜브"
     }
 }

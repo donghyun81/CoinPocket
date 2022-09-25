@@ -6,10 +6,7 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.EditCalendar
-import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
@@ -19,6 +16,7 @@ import com.example.coinpocket.presentation.NavGraphs
 import com.example.coinpocket.presentation.destinations.CoinMainScreenDestination
 import com.example.coinpocket.presentation.destinations.CompanyListingScreenDestination
 import com.example.coinpocket.presentation.destinations.DirectionDestination
+import com.example.coinpocket.presentation.destinations.YoutubeListingScreenDestination
 import com.ramcosta.composedestinations.navigation.navigate
 import com.ramcosta.composedestinations.navigation.popBackStack
 import com.ramcosta.composedestinations.navigation.popUpTo
@@ -66,4 +64,6 @@ enum class BottomBarItem(
 ) {
     CoinMain(CoinMainScreenDestination, Icons.Default.EditCalendar, R.string.coin_main),
     CompanyList(CompanyListingScreenDestination, Icons.Default.List, R.string.company_listing),
+    YoutubeList(YoutubeListingScreenDestination, Icons.Default.Videocam, R.string.youtube_listing)
+
 }

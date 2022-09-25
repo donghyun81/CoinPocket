@@ -12,5 +12,7 @@
     //bottom navigation string resorce
     <string name="coin_main">가계부</string>
     <string name="company_listing">회사목록</string>
+    <string name="youtube_listing">유튜브</string>
+
 
 </resources>
