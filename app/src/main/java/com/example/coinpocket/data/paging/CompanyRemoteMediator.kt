@@ -83,7 +83,6 @@ class CompanyRemoteMediator @Inject constructor(
                             companyDao.addCompanies(companies = responseData.items.item)
                         }
                     }
-
                 }
                 MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
             }

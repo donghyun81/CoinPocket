@@ -8,20 +8,21 @@ data class CompanyListing(
     val header: Header,
     @SerializedName("body")
     val companies:Body,
-)
+){
+    data class Header(
+        val resultCode: Int,
+        val resultMsg: String
+    )
 
-data class Header(
-    val resultCode: Int,
-    val resultMsg: String
-)
+    data class Body(
+        @SerializedName("pageNo")
+        val pageNo:Int,
+        val items: Items
+    )
 
-data class Body(
-    @SerializedName("pageNo")
-    val pageNo:Int,
-    val items: Items
-)
+    data class Items(
+        @SerializedName("items")
+        val item: List<CompanyListingEntity>
+    )
+}
 
- data class Items(
-     @SerializedName("items")
-     val item: List<CompanyListingEntity>
-)
